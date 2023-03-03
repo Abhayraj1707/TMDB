@@ -17,6 +17,9 @@
 		9F44644429AF4A7D00A99734 /* TMDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644329AF4A7D00A99734 /* TMDBTests.m */; };
 		9F44644E29AF4A7D00A99734 /* TMDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644D29AF4A7D00A99734 /* TMDBUITests.m */; };
 		9F44645029AF4A7D00A99734 /* TMDBUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644F29AF4A7D00A99734 /* TMDBUITestsLaunchTests.m */; };
+		9F44646429AF81EB00A99734 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44646329AF81EB00A99734 /* NetworkManager.m */; };
+		9F63F90C29B1C607007589B4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F90B29B1C607007589B4 /* Movie.swift */; };
+		9F63F91229B1E3A0007589B4 /* customCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +57,12 @@
 		9F44644929AF4A7D00A99734 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44644D29AF4A7D00A99734 /* TMDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMDBUITests.m; sourceTree = "<group>"; };
 		9F44644F29AF4A7D00A99734 /* TMDBUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMDBUITestsLaunchTests.m; sourceTree = "<group>"; };
+		9F44646229AF81EB00A99734 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		9F44646329AF81EB00A99734 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
+		9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMDB-Bridging-Header.h"; sourceTree = "<group>"; };
+		9F63F90B29B1C607007589B4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		9F63F91029B1E3A0007589B4 /* customCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customCollectionViewCell.h; sourceTree = "<group>"; };
+		9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,17 +113,11 @@
 		9F44642629AF4A7C00A99734 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
-				9F44642729AF4A7C00A99734 /* AppDelegate.h */,
-				9F44642829AF4A7C00A99734 /* AppDelegate.m */,
-				9F44642A29AF4A7C00A99734 /* SceneDelegate.h */,
-				9F44642B29AF4A7C00A99734 /* SceneDelegate.m */,
-				9F44642D29AF4A7C00A99734 /* ViewController.h */,
-				9F44642E29AF4A7C00A99734 /* ViewController.m */,
-				9F44643029AF4A7C00A99734 /* Main.storyboard */,
-				9F44643329AF4A7D00A99734 /* Assets.xcassets */,
-				9F44643529AF4A7D00A99734 /* LaunchScreen.storyboard */,
-				9F44643829AF4A7D00A99734 /* Info.plist */,
-				9F44643929AF4A7D00A99734 /* main.m */,
+				9F63F90F29B1CEF5007589B4 /* Storyboards */,
+				9F63F90E29B1CECA007589B4 /* Resource */,
+				9F63F90029B0ADC2007589B4 /* Model */,
+				9F63F8FF29B0AD92007589B4 /* View */,
+				9F44646529AF81F800A99734 /* Common */,
 			);
 			path = TMDB;
 			sourceTree = "<group>";
@@ -134,6 +137,58 @@
 				9F44644F29AF4A7D00A99734 /* TMDBUITestsLaunchTests.m */,
 			);
 			path = TMDBUITests;
+			sourceTree = "<group>";
+		};
+		9F44646529AF81F800A99734 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				9F44646229AF81EB00A99734 /* NetworkManager.h */,
+				9F44646329AF81EB00A99734 /* NetworkManager.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9F63F8FF29B0AD92007589B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9F44642D29AF4A7C00A99734 /* ViewController.h */,
+				9F44642E29AF4A7C00A99734 /* ViewController.m */,
+				9F63F91029B1E3A0007589B4 /* customCollectionViewCell.h */,
+				9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9F63F90029B0ADC2007589B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F63F90B29B1C607007589B4 /* Movie.swift */,
+				9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9F63F90E29B1CECA007589B4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				9F44642A29AF4A7C00A99734 /* SceneDelegate.h */,
+				9F44642B29AF4A7C00A99734 /* SceneDelegate.m */,
+				9F44642729AF4A7C00A99734 /* AppDelegate.h */,
+				9F44642829AF4A7C00A99734 /* AppDelegate.m */,
+				9F44643929AF4A7D00A99734 /* main.m */,
+				9F44643329AF4A7D00A99734 /* Assets.xcassets */,
+				9F44643829AF4A7D00A99734 /* Info.plist */,
+			);
+			name = Resource;
+			sourceTree = "<group>";
+		};
+		9F63F90F29B1CEF5007589B4 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				9F44643529AF4A7D00A99734 /* LaunchScreen.storyboard */,
+				9F44643029AF4A7C00A99734 /* Main.storyboard */,
+			);
+			name = Storyboards;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +258,7 @@
 				TargetAttributes = {
 					9F44642329AF4A7C00A99734 = {
 						CreatedOnToolsVersion = 14.2;
+						LastSwiftMigration = 1420;
 					};
 					9F44643E29AF4A7D00A99734 = {
 						CreatedOnToolsVersion = 14.2;
@@ -269,6 +325,9 @@
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
+				9F63F91229B1E3A0007589B4 /* customCollectionViewCell.m in Sources */,
+				9F44646429AF81EB00A99734 /* NetworkManager.m in Sources */,
+				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
 				9F44642C29AF4A7C00A99734 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,6 +499,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -457,6 +517,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.abhay.TMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TMDB/Model/TMDB-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -466,6 +529,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -483,6 +547,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.abhay.TMDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "TMDB/Model/TMDB-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -490,6 +556,7 @@
 		9F44645729AF4A7D00A99734 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -507,6 +574,7 @@
 		9F44645829AF4A7D00A99734 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -524,6 +592,7 @@
 		9F44645A29AF4A7D00A99734 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -539,6 +608,7 @@
 		9F44645B29AF4A7D00A99734 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
