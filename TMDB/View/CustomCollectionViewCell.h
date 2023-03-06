@@ -6,13 +6,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMDB-Swift.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface customCollectionViewCell : UICollectionViewCell
+@interface CustomCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *titleLabel;
+
+-(void)setData: (Movie*)data;
 
 @end
 

@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController <UICollectionViewDataSource>
 
-@property (nonatomic) Movie *movie;
+@property (nonatomic) NSMutableArray *movies;
 
 @end
 

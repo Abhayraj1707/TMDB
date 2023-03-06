@@ -17,9 +17,10 @@
 		9F44644429AF4A7D00A99734 /* TMDBTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644329AF4A7D00A99734 /* TMDBTests.m */; };
 		9F44644E29AF4A7D00A99734 /* TMDBUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644D29AF4A7D00A99734 /* TMDBUITests.m */; };
 		9F44645029AF4A7D00A99734 /* TMDBUITestsLaunchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44644F29AF4A7D00A99734 /* TMDBUITestsLaunchTests.m */; };
-		9F44646429AF81EB00A99734 /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44646329AF81EB00A99734 /* NetworkManager.m */; };
 		9F63F90C29B1C607007589B4 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F90B29B1C607007589B4 /* Movie.swift */; };
-		9F63F91229B1E3A0007589B4 /* customCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */; };
+		9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */; };
+		9F63F91429B201D0007589B4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91329B201D0007589B4 /* ResponseData.swift */; };
+		9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91529B20BEA007589B4 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,12 +58,12 @@
 		9F44644929AF4A7D00A99734 /* TMDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TMDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44644D29AF4A7D00A99734 /* TMDBUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMDBUITests.m; sourceTree = "<group>"; };
 		9F44644F29AF4A7D00A99734 /* TMDBUITestsLaunchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TMDBUITestsLaunchTests.m; sourceTree = "<group>"; };
-		9F44646229AF81EB00A99734 /* NetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
-		9F44646329AF81EB00A99734 /* NetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TMDB-Bridging-Header.h"; sourceTree = "<group>"; };
 		9F63F90B29B1C607007589B4 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		9F63F91029B1E3A0007589B4 /* customCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customCollectionViewCell.h; sourceTree = "<group>"; };
-		9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customCollectionViewCell.m; sourceTree = "<group>"; };
+		9F63F91029B1E3A0007589B4 /* CustomCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomCollectionViewCell.h; sourceTree = "<group>"; };
+		9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
+		9F63F91329B201D0007589B4 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
+		9F63F91529B20BEA007589B4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +143,7 @@
 		9F44646529AF81F800A99734 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				9F44646229AF81EB00A99734 /* NetworkManager.h */,
-				9F44646329AF81EB00A99734 /* NetworkManager.m */,
+				9F63F91529B20BEA007589B4 /* NetworkManager.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -153,8 +153,8 @@
 			children = (
 				9F44642D29AF4A7C00A99734 /* ViewController.h */,
 				9F44642E29AF4A7C00A99734 /* ViewController.m */,
-				9F63F91029B1E3A0007589B4 /* customCollectionViewCell.h */,
-				9F63F91129B1E3A0007589B4 /* customCollectionViewCell.m */,
+				9F63F91029B1E3A0007589B4 /* CustomCollectionViewCell.h */,
+				9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				9F63F90B29B1C607007589B4 /* Movie.swift */,
+				9F63F91329B201D0007589B4 /* ResponseData.swift */,
 				9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */,
 			);
 			path = Model;
@@ -322,12 +323,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
-				9F63F91229B1E3A0007589B4 /* customCollectionViewCell.m in Sources */,
-				9F44646429AF81EB00A99734 /* NetworkManager.m in Sources */,
+				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,
 				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
+				9F63F91429B201D0007589B4 /* ResponseData.swift in Sources */,
 				9F44642C29AF4A7C00A99734 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
