@@ -20,16 +20,24 @@ UICollectionView *collectionView;
     [super viewDidLoad];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    flowLayout.itemSize = CGSizeMake(200, 100);
+    
+    flowLayout.itemSize = CGSizeMake(241, 300);
+    flowLayout.minimumLineSpacing = 10;
+    [flowLayout setSectionInset:UIEdgeInsetsMake(100, 10, 10, 10)];
+    [flowLayout setMinimumLineSpacing:10];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
-    collectionView = [[UICollectionView alloc] initWithFrame: [self.view frame] collectionViewLayout:flowLayout];
+    CGRect rect = CGRectMake(0, 0, [self.view frame].size.width, 300);
+    collectionView = [[UICollectionView alloc] initWithFrame: rect collectionViewLayout:flowLayout];
     collectionView.dataSource = self;
-    //collectionView.delegate = self;
-    [collectionView setBackgroundColor:UIColor.whiteColor];
+    
+//    collectionView.delegate = self;
+    [collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"titleCell"];
     
-    [self.view setBackgroundColor:UIColor.redColor];
+    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"overviewCell"];
+    [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+
     [self.view addSubview:collectionView];
 
     [self checkAPICall];
@@ -55,21 +63,38 @@ UICollectionView *collectionView;
     });
 }
 
-- (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
-    CustomCollectionViewCell * titleCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"titleCell" forIndexPath:indexPath];
-    
-    if (titleCell==nil) {
-        titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
+- ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    if(indexPath.section==0)
+    {
+        CustomCollectionViewCell * titleCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"titleCell" forIndexPath:indexPath];
+        
+        if (titleCell==nil) {
+            titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
+        }
+        [titleCell setData:self.movies[indexPath.row]];
+        
+        return titleCell;
     }
-    [titleCell setData:self.movies[indexPath.row]];
-    
-    return titleCell;
+    else if(indexPath.section==1)
+    {
+        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
+        if(overviewCell==nil){
+            overviewCell = (CustomCollectionViewCell *)[[UICollectionView alloc]init];
+        }
+        [overviewCell setData:self.movies[indexPath.row]];
+        
+        return  overviewCell;
+    }
+    else {
+        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
+        return overviewCell;
+    }
+  
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
-    //return (([Movie])_result.results).count;
+    return 10;
+
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView heightForItemsAtIndexPath:(NSIndexPath *)indexPath
@@ -85,49 +110,8 @@ UICollectionView *collectionView;
     
     return 0;
 }
-//
-//- (void)encodeWithCoder:(nonnull NSCoder *)coder {
-//    <#code#>
-//}
-//
-//- (void)traitCollectionDidChange:(nullable UITraitCollection *)previousTraitCollection {
-//    <#code#>
-//}
-//
-//- (void)preferredContentSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-//    <#code#>
-//}
-//
-//- (CGSize)sizeForChildContentContainer:(nonnull id<UIContentContainer>)container withParentContainerSize:(CGSize)parentSize {
-//    <#code#>
-//}
-//
-//- (void)systemLayoutFittingSizeDidChangeForChildContentContainer:(nonnull id<UIContentContainer>)container {
-//    <#code#>
-//}
-//
-//- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-//    <#code#>
-//}
-//
-//- (void)willTransitionToTraitCollection:(nonnull UITraitCollection *)newCollection withTransitionCoordinator:(nonnull id<UIViewControllerTransitionCoordinator>)coordinator {
-//    <#code#>
-//}
-//
-//- (void)didUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context withAnimationCoordinator:(nonnull UIFocusAnimationCoordinator *)coordinator {
-//    <#code#>
-//}
-//
-//- (void)setNeedsFocusUpdate {
-//    <#code#>
-//}
-//
-//- (BOOL)shouldUpdateFocusInContext:(nonnull UIFocusUpdateContext *)context {
-//    <#code#>
-//}
-//
-//- (void)updateFocusIfNeeded {
-//    <#code#>
-//}
 
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 3;
+}
 @end

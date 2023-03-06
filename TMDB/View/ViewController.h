@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "TMDB-Swift.h"
 
-@interface ViewController : UIViewController <UICollectionViewDataSource>
+@interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
 
 @property (nonatomic) NSMutableArray *movies;
 

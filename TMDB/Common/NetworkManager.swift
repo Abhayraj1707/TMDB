@@ -24,13 +24,9 @@ class NetworkManager: NSObject {
                 completionHandler(nil, error as NSError?)
                 return;
             }
-            do {
-                let responseData = try? JSONDecoder().decode(ResponseData.self, from: data)
-                completionHandler(responseData, nil)
-                
-            } catch {
-                print("error")
-            }
+            
+            let responseData = try? JSONDecoder().decode(ResponseData.self, from: data)
+            completionHandler(responseData, nil)
         }
         dataTask.resume()
     }
