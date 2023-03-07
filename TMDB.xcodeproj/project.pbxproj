@@ -21,6 +21,8 @@
 		9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */; };
 		9F63F91429B201D0007589B4 /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91329B201D0007589B4 /* ResponseData.swift */; };
 		9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91529B20BEA007589B4 /* NetworkManager.swift */; };
+		9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91A29B747EE007589B4 /* AFTableViewCell.m */; };
+		9F63F91F29B76F09007589B4 /* customLabelcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91E29B76F09007589B4 /* customLabelcell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +66,10 @@
 		9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomCollectionViewCell.m; sourceTree = "<group>"; };
 		9F63F91329B201D0007589B4 /* ResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		9F63F91529B20BEA007589B4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9F63F91A29B747EE007589B4 /* AFTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFTableViewCell.m; sourceTree = "<group>"; };
+		9F63F91B29B747EF007589B4 /* AFTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFTableViewCell.h; sourceTree = "<group>"; };
+		9F63F91D29B76F09007589B4 /* customLabelcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customLabelcell.h; sourceTree = "<group>"; };
+		9F63F91E29B76F09007589B4 /* customLabelcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customLabelcell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,8 +159,12 @@
 			children = (
 				9F44642D29AF4A7C00A99734 /* ViewController.h */,
 				9F44642E29AF4A7C00A99734 /* ViewController.m */,
+				9F63F91B29B747EF007589B4 /* AFTableViewCell.h */,
+				9F63F91A29B747EE007589B4 /* AFTableViewCell.m */,
 				9F63F91029B1E3A0007589B4 /* CustomCollectionViewCell.h */,
 				9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */,
+				9F63F91D29B76F09007589B4 /* customLabelcell.h */,
+				9F63F91E29B76F09007589B4 /* customLabelcell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,8 +333,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */,
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
+				9F63F91F29B76F09007589B4 /* customLabelcell.m in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
 				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,

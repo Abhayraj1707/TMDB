@@ -8,9 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "TMDB-Swift.h"
 
-@interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate>
+@interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) NSMutableArray *movies;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;
 
 @end
 

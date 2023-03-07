@@ -15,10 +15,81 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="wpP-jz-bXH">
+                                <rect key="frame" x="129" y="103" width="135" height="32"/>
+                                <segments>
+                                    <segment title="Movies"/>
+                                    <segment title="TvShow"/>
+                                </segments>
+                            </segmentedControl>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-Ut-Eoj">
+                                <rect key="frame" x="16" y="137" width="69" height="23"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="23" id="X61-Rq-Ii9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="iWJ-Yi-LcT">
+                                <rect key="frame" x="16" y="168" width="361" height="32"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="Action &amp; Adventure"/>
+                                    <segment title="Animation"/>
+                                    <segment title="Comedy"/>
+                                    <segment title="Fiction"/>
+                                    <segment title="sci-fi"/>
+                                </segments>
+                            </segmentedControl>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T05-T9-lus">
+                                <rect key="frame" x="16" y="217" width="85" height="26"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="21"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-4J-wtZ">
+                                <rect key="frame" x="0.0" y="131" width="393" height="796"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" systemColor="systemIndigoColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="l6T-fK-a2S"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rEN-m2-E8j"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemGray3Color"/>
+                        <constraints>
+                            <constraint firstItem="T05-T9-lus" firstAttribute="leading" secondItem="iWJ-Yi-LcT" secondAttribute="leading" id="1OR-bl-r34"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3UX-As-vvE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="5Eq-Ut-Eoj" secondAttribute="trailing" symbolic="YES" id="3zi-xE-2cV"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9TA-fZ-SSe"/>
+                            <constraint firstItem="5Eq-Ut-Eoj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="34" id="Czk-hv-Vp4"/>
+                            <constraint firstItem="T05-T9-lus" firstAttribute="top" secondItem="iWJ-Yi-LcT" secondAttribute="bottom" constant="18" id="E7d-bz-EQ8"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="top" secondItem="wpP-jz-bXH" secondAttribute="bottom" constant="-3" id="Ey1-uD-2Kg"/>
+                            <constraint firstItem="T05-T9-lus" firstAttribute="leading" secondItem="5Eq-Ut-Eoj" secondAttribute="leading" id="GcT-Mc-KMg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WfE-4J-wtZ" secondAttribute="bottom" constant="-109" id="GhW-41-xAO"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JBd-TL-1tA"/>
+                            <constraint firstItem="T05-T9-lus" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="PrA-9d-CDF"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X5C-8K-vYR"/>
+                            <constraint firstItem="wpP-jz-bXH" firstAttribute="centerX" secondItem="iWJ-Yi-LcT" secondAttribute="centerX" id="czJ-rh-fsP"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="109" id="eb0-8Y-bv8"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f5f-CP-Zc4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="T05-T9-lus" secondAttribute="trailing" symbolic="YES" id="g4c-X8-V3D"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hg8-lq-V68"/>
+                            <constraint firstItem="iWJ-Yi-LcT" firstAttribute="top" secondItem="5Eq-Ut-Eoj" secondAttribute="bottom" constant="8" symbolic="YES" id="mPp-za-9Dk"/>
+                            <constraint firstItem="wpP-jz-bXH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oRA-0V-hs7"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p9i-0U-KRC"/>
+                            <constraint firstItem="wpP-jz-bXH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="rE1-fZ-LqE"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="voE-VW-uSY"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="NeatFlix" id="Ol6-5O-TbQ"/>
+                    <navigationItem key="navigationItem" title="NeatFlix" id="JQD-bN-aVx"/>
+                    <connections>
+                        <outlet property="tableView" destination="WfE-4J-wtZ" id="adU-bS-9QS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -32,6 +103,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Niv-Dz-rub">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -46,6 +120,12 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

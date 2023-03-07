@@ -8,39 +8,36 @@
 #import "ViewController.h"
 #import <Foundation/Foundation.h>
 #import "CustomCollectionViewCell.h"
+#import "AFTableViewCell.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
-UICollectionView *collectionView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
+    
+
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
     flowLayout.itemSize = CGSizeMake(241, 300);
     flowLayout.minimumLineSpacing = 10;
-    [flowLayout setSectionInset:UIEdgeInsetsMake(100, 10, 10, 10)];
+    
+    [flowLayout setSectionInset:UIEdgeInsetsMake(40, 10, 10, 10)];
     [flowLayout setMinimumLineSpacing:10];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-    
-    CGRect rect = CGRectMake(0, 0, [self.view frame].size.width, 300);
-    collectionView = [[UICollectionView alloc] initWithFrame: rect collectionViewLayout:flowLayout];
-    collectionView.dataSource = self;
-    
-//    collectionView.delegate = self;
-    [collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"titleCell"];
-    
-    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"overviewCell"];
+//
+//    CGRect rect = CGRectMake(0, 245, [self.view frame].size.width, 275);
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-
-    [self.view addSubview:collectionView];
+//
+//    //[self.view addSubview:collectionView];
 
     [self checkAPICall];
+    self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
 - (void)checkAPICall {
@@ -59,14 +56,14 @@ UICollectionView *collectionView;
 -(void)reloadData {
     NSLog(@"%@", self.movies);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [collectionView reloadData];
+        [self.tableView reloadData];
+        //[collectionView reloadData];
     });
 }
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    if(indexPath.section==0)
-    {
-        CustomCollectionViewCell * titleCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"titleCell" forIndexPath:indexPath];
+   
+        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"titleCell" forIndexPath:indexPath];
         
         if (titleCell==nil) {
             titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
@@ -74,21 +71,13 @@ UICollectionView *collectionView;
         [titleCell setData:self.movies[indexPath.row]];
         
         return titleCell;
-    }
-    else if(indexPath.section==1)
-    {
-        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
-        if(overviewCell==nil){
-            overviewCell = (CustomCollectionViewCell *)[[UICollectionView alloc]init];
-        }
-        [overviewCell setData:self.movies[indexPath.row]];
-        
-        return  overviewCell;
-    }
-    else {
-        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
-        return overviewCell;
-    }
+    
+////
+//
+//    else {
+//        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
+//        return overviewCell;
+//    }
   
 }
 
@@ -96,6 +85,52 @@ UICollectionView *collectionView;
     return 10;
 
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 3;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return  1;
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0)
+    {
+        
+    }
+    static NSString *CellIdentifier = @"horizontalCell";
+    
+    AFTableViewCell *cell = (AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (!cell)
+    {
+        cell = [[AFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
+    }
+    
+    return cell;
+//    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame: rect collectionViewLayout:flowLayout];
+//    collectionView.dataSource = self;
+//
+////    collectionView.delegate = self;
+//    [collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+//    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"titleCell"];
+//
+//    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"overviewCell"];
+    
+    
+//    UITableViewCell* horizontalCell = [tableView  dequeueReusableCellWithIdentifier:@"horizontalCell"];
+//    horizontalCell.contentView.backgroundColor = UIColor.blueColor;
+//    horizontalCell.textLabel.text = @"first";
+//    return horizontalCell;
+
+}
+
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView heightForItemsAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,4 +149,49 @@ UICollectionView *collectionView;
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 3;
 }
+
+
+-(void)tableView:(UITableView *)tableView willDisplayCell:(AFTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
+    NSInteger index = cell.collectionView.indexPath.row;
+    
+    CGFloat horizontalOffset = [self.contentOffsetDictionary[[@(index) stringValue]] floatValue];
+    [cell.collectionView setContentOffset:CGPointMake(horizontalOffset, 0)];
+}
+
+
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    if (![scrollView isKindOfClass:[UICollectionView class]]) return;
+    
+    CGFloat horizontalOffset = scrollView.contentOffset.x;
+    
+    AFIndexedCollectionView *collectionView = (AFIndexedCollectionView *)scrollView;
+    NSInteger index = collectionView.indexPath.row;
+    self.contentOffsetDictionary[[@(index) stringValue]] = @(horizontalOffset);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 300;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+
+    if(section==0)
+    {
+        
+        return @"Genres";
+    }
+    else if(section==1)
+    {
+        return @"Popular";
+    }
+    else
+    {
+        return @"Top Rated";
+    }
+}
+
 @end

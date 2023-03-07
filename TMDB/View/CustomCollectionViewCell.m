@@ -21,17 +21,12 @@
         self.posterImage.clipsToBounds = true;
         [self.contentView addSubview:self.posterImage];
         self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, 100, 75)];
-//        self.titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, frame.size.height * 0.8, frame.size.width, frame.size.height * 0.2)];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.numberOfLines = 2;
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         self.titleLabel.textColor = UIColor.whiteColor;
         [self.contentView addSubview:self.titleLabel];
-        
-        self.overviewLabel = [[UILabel alloc]initWithFrame:CGRectMake(20, 130,frame.size.width, 200)];
-        self.overviewLabel.numberOfLines = 3;
-        self.overviewLabel.font = [UIFont systemFontOfSize:13];
-        [self.contentView addSubview:self.overviewLabel];
+       
         
     }
     return self;
@@ -39,7 +34,7 @@
 
 -(void)setData: (Movie*)data {
     self.titleLabel.text = data.title;
-    self.overviewLabel.text = data.overview;
+
     
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", data.poster_path];
