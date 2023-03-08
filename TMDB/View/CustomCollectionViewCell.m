@@ -35,7 +35,6 @@
 -(void)setData: (Movie*)data {
     self.titleLabel.text = data.title;
 
-    
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", data.poster_path];
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
@@ -43,7 +42,18 @@
             self.posterImage.image = [UIImage imageWithData: imageData];
         });
     });
+}
+
+-(void)setTrendingData :(TrendingMovies*)trendingData{
+    self.titleLabel.text = trendingData.title;
     
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", trendingData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.posterImage.image = [UIImage imageWithData: imageData];
+        });
+    });
 }
 
 @end

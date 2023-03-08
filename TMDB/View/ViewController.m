@@ -30,15 +30,15 @@
     [flowLayout setSectionInset:UIEdgeInsetsMake(40, 10, 10, 10)];
     [flowLayout setMinimumLineSpacing:10];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-//
-//    CGRect rect = CGRectMake(0, 245, [self.view frame].size.width, 275);
+
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-//
-//    //[self.view addSubview:collectionView];
 
     [self checkAPICall];
+    [self checkTreandingAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
+
+
 
 - (void)checkAPICall {
     NetworkManager *nm = [[NetworkManager alloc] init];
@@ -47,19 +47,45 @@
     [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
         }
+
         self.movies = [data.results copy];
-        
         [self reloadData];
     }];
 }
 
--(void)reloadData {
-    NSLog(@"%@", self.movies);
+-(void)checkTreandingAPICall{
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/all/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable trendingData, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"treanding error is %@", error);
+            
+        }
+
+        self.trendingMovies = [trendingData.results copy];
+        NSLog(@"trending movies data %@", self.trendingMovies);
+        [self reloadTrendingData];
+    }];
+}
+
+-(void)reloadTrendingData{
+    NSLog(@" trending data %@", self.trendingMovies);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
+    });
+}
+
+-(void)reloadData {
+    NSLog(@"movie data %@", self.movies);
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+       
         //[collectionView reloadData];
     });
 }
+     
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
    
@@ -68,16 +94,20 @@
         if (titleCell==nil) {
             titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
         }
-        [titleCell setData:self.movies[indexPath.row]];
-        
+    
+//    if(indexPath.section==1){
+//        [titleCell setData:self.movies[indexPath.row]];
+//    }
+//    else
+//    {
+        [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+//    }
+      
+   
+
         return titleCell;
     
-////
-//
-//    else {
-//        CustomCollectionViewCell *overviewCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"overviewCell" forIndexPath:indexPath];
-//        return overviewCell;
-//    }
+
   
 }
 

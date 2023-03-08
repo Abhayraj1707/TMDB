@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) NSMutableArray *movies;
+@property(nonatomic) NSMutableArray *trendingMovies;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;

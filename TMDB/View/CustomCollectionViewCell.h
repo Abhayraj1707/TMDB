@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic,strong) UIImageView *posterImage;
 
 -(void)setData: (Movie*)data;
+-(void)setTrendingData :(TrendingMovies*)trendingData;
+
 
 @end
 
