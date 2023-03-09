@@ -44,7 +44,7 @@
     });
 }
 
--(void)setTrendingData :(TrendingMovies*)trendingData{
+-(void)setTrendingData:(TrendingMovies*)trendingData{
     self.titleLabel.text = trendingData.title;
     
     dispatch_async(dispatch_get_global_queue(0,0), ^{

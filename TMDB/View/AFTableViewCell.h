@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TMDB-Swift.h"
 
 
 @interface AFIndexedCollectionView : UICollectionView
@@ -21,6 +22,14 @@ static NSString *CollectionViewCellIdentifier = @"titleCell";
 @interface AFTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) AFIndexedCollectionView *collectionView;
+
+// testing
+@property (nonatomic, strong) UILabel *titleLabel;
+@property(nonatomic,strong) UIImageView *posterImage;
+
+-(void)setData: (Movie*)data;
+-(void)setTrendingData :(TrendingMovies*)trendingData;
+
 
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath;
 

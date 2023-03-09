@@ -32,6 +32,20 @@
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:self.collectionView];
     
+    // testing
+    self.posterImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0,250, 160)];
+    self.posterImage.contentMode = UIViewContentModeScaleToFill;
+    self.posterImage.layer.cornerRadius = 10;
+    self.posterImage.clipsToBounds = true;
+    [self.contentView addSubview:self.posterImage];
+    self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, 100, 75)];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.numberOfLines = 2;
+    self.titleLabel.font = [UIFont systemFontOfSize:14];
+    self.titleLabel.textColor = UIColor.whiteColor;
+    [self.contentView addSubview:self.titleLabel];
+    // testing
+    
     return self;
 }
 
@@ -53,5 +67,34 @@
     
     [self.collectionView reloadData];
 }
+
+//testing
+
+-(void)setData: (Movie*)data {
+    self.titleLabel.text = data.title;
+
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", data.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.posterImage.image = [UIImage imageWithData: imageData];
+        });
+    });
+}
+
+-(void)setTrendingData:(TrendingMovies*)trendingData{
+    self.titleLabel.text = trendingData.title;
+    
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", trendingData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.posterImage.image = [UIImage imageWithData: imageData];
+        });
+    });
+}
+
+// testing
+
 
 @end

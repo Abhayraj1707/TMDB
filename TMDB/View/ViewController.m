@@ -15,12 +15,28 @@
 @end
 
 @implementation ViewController
+- (void) performSearch:(id)paramSender{
+    NSLog(@"Action method got called.");
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
+    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"neatflix_name.png"]];
+//    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
     
-
+    self.navigationItem.rightBarButtonItem =
+        [[UIBarButtonItem alloc]
+         initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+         target:self
+         action:@selector(performSearch:)];
+    self.navigationItem.rightBarButtonItem.tintColor = UIColor.whiteColor;
+    
+    self.navigationItem.leftBarButtonItem =
+        [[UIBarButtonItem alloc]
+         initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+         target:self
+         action:@selector(performSearch:)];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
@@ -57,7 +73,7 @@
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
-    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/all/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable trendingData, NSError * _Nullable error) {
+    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/all/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"treanding error is %@", error);
             
@@ -95,19 +111,15 @@
             titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
         }
     
-//    if(indexPath.section==1){
-//        [titleCell setData:self.movies[indexPath.row]];
-//    }
-//    else
-//    {
-        [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
-//    }
-      
-   
+//        if(indexPath.section==0)
+//        {
+            [titleCell setData:self.movies[indexPath.row]];
+//        }
+//        else{
+//            [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+//        }
 
-        return titleCell;
-    
-
+       return titleCell;
   
 }
 
@@ -129,10 +141,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if(indexPath.section==0)
-    {
-        
-    }
+  
     static NSString *CellIdentifier = @"horizontalCell";
     
     AFTableViewCell *cell = (AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -142,22 +151,16 @@
         cell = [[AFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
     }
-    
+    if(indexPath.section==0)
+    {
+        [cell setData:self.movies[indexPath.row]];
+    }
+    else
+    {
+        [cell setTrendingData:self.trendingMovies[indexPath.row]];
+
+    }
     return cell;
-//    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame: rect collectionViewLayout:flowLayout];
-//    collectionView.dataSource = self;
-//
-////    collectionView.delegate = self;
-//    [collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-//    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"titleCell"];
-//
-//    [collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:@"overviewCell"];
-    
-    
-//    UITableViewCell* horizontalCell = [tableView  dequeueReusableCellWithIdentifier:@"horizontalCell"];
-//    horizontalCell.contentView.backgroundColor = UIColor.blueColor;
-//    horizontalCell.textLabel.text = @"first";
-//    return horizontalCell;
 
 }
 
@@ -177,7 +180,7 @@
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 3;
+    return 2;
 }
 
 

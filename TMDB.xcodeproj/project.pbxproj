@@ -24,6 +24,7 @@
 		9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91A29B747EE007589B4 /* AFTableViewCell.m */; };
 		9F63F91F29B76F09007589B4 /* customLabelcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91E29B76F09007589B4 /* customLabelcell.m */; };
 		9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92229B86D42007589B4 /* TrendingMovies.swift */; };
+		9F63F92529B8CF90007589B4 /* TrendingResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		9F63F91D29B76F09007589B4 /* customLabelcell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = customLabelcell.h; sourceTree = "<group>"; };
 		9F63F91E29B76F09007589B4 /* customLabelcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customLabelcell.m; sourceTree = "<group>"; };
 		9F63F92229B86D42007589B4 /* TrendingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovies.swift; sourceTree = "<group>"; };
+		9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponseData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 				9F63F91329B201D0007589B4 /* ResponseData.swift */,
 				9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */,
 				9F63F92229B86D42007589B4 /* TrendingMovies.swift */,
+				9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */,
+				9F63F92529B8CF90007589B4 /* TrendingResponseData.swift in Sources */,
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */,
