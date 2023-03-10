@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSMutableArray *movies;
 @property(nonatomic) NSMutableArray *trendingMovies;
+@property (nonatomic) NSMutableArray *genreMovies;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;

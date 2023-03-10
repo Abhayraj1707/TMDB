@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CustomCollectionViewCell.h"
 #import "AFTableViewCell.h"
+#import "CustomBtnCollectionViewCell.h"
 
 @interface ViewController ()
 
@@ -23,20 +24,20 @@
     [super viewDidLoad];
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"neatflix_name.png"]];
-//    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
+    //    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
     
     self.navigationItem.rightBarButtonItem =
-        [[UIBarButtonItem alloc]
-         initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
-         target:self
-         action:@selector(performSearch:)];
+    [[UIBarButtonItem alloc]
+     initWithBarButtonSystemItem:UIBarButtonSystemItemSearch
+     target:self
+     action:@selector(performSearch:)];
     self.navigationItem.rightBarButtonItem.tintColor = UIColor.whiteColor;
     
     self.navigationItem.leftBarButtonItem =
-        [[UIBarButtonItem alloc]
-         initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-         target:self
-         action:@selector(performSearch:)];
+    [[UIBarButtonItem alloc]
+     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+     target:self
+     action:@selector(performSearch:)];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
@@ -46,11 +47,13 @@
     [flowLayout setSectionInset:UIEdgeInsetsMake(40, 10, 10, 10)];
     [flowLayout setMinimumLineSpacing:10];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
-
+    
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+    
     [self checkAPICall];
     [self checkTreandingAPICall];
+    [self checkGenreAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
@@ -63,7 +66,7 @@
     [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
         }
-
+        
         self.movies = [data.results copy];
         [self reloadData];
     }];
@@ -78,54 +81,114 @@
             NSLog(@"treanding error is %@", error);
             
         }
-
+        
         self.trendingMovies = [trendingData.results copy];
         NSLog(@"trending movies data %@", self.trendingMovies);
-        [self reloadTrendingData];
+        [self reloadData];
     }];
 }
 
--(void)reloadTrendingData{
-    NSLog(@" trending data %@", self.trendingMovies);
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+
+-(void)checkGenreAPICall{
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    
+    [nm getGenreDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/genre/movie/list?api_key=626c45c82d5332598efa800848ea3571&language=en-US" reqType:@"GET" headers:headers completionHandler:^(GenreData * _Nullable genreData, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"Genre error is %@", error);
+            
+        }
+        self.genreMovies = [genreData.genres copy];
+        NSLog(@"genre movies data %@", self.genreMovies);
+        [self reloadData];
+    }];
 }
 
 -(void)reloadData {
     NSLog(@"movie data %@", self.movies);
+    NSLog(@" trending data %@", self.trendingMovies);
+    NSLog(@"Genre data %@", self.genreMovies);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
-       
-        //[collectionView reloadData];
+        
     });
 }
-     
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-   
-        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"titleCell" forIndexPath:indexPath];
+    if (indexPath.section == 0) {
+        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
         
         if (titleCell==nil) {
             titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
         }
-    
-//        if(indexPath.section==0)
-//        {
+        
+        AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+        
+        
             [titleCell setData:self.movies[indexPath.row]];
+        return titleCell;
+//        CustomBtnCollectionViewCell * titleCell = (CustomBtnCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"genred" forIndexPath:indexPath];
+//
+//        if (titleCell==nil) {
+//            titleCell = (CustomBtnCollectionViewCell *)[[UICollectionViewCell alloc]init];
 //        }
-//        else{
-//            [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
-//        }
-
-       return titleCell;
-  
+//
+//        //AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+//
+//       // [titleCell  setGenreData:self.genreMovies[indexPath.row]];
+//
+//        return titleCell;
+        
+    } else if (indexPath.section == 1) {
+        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
+        
+        if (titleCell==nil) {
+            titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
+        }
+        
+        AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+        
+        
+            [titleCell setData:self.movies[indexPath.row]];
+        return titleCell;
+        
+    } else {
+        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"trending" forIndexPath:indexPath];
+        
+        if (titleCell==nil) {
+            titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
+        }
+        
+        AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+        
+            [titleCell setData:self.trendingMovies[indexPath.row]];
+        
+        return titleCell;
+        
+    }
+    
+    
+    //    else if([cell.type isEqual:@""])
+    //    {
+    //        [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+    //    }
+    //    else if([cell.type isEqual:@"genre"])
+    //    {
+    //    }
+    return nil;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 10;
-
+    if(section==0)
+        return _genreMovies.count;
+    else if(section==1)
+        return _movies.count;
+    else
+        return _trendingMovies.count;
+    return 0;
+    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -141,27 +204,33 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  
+    
     static NSString *CellIdentifier = @"horizontalCell";
     
-    AFTableViewCell *cell = (AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AFTableViewCell *cell = nil;//(AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
     {
         cell = [[AFTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
     }
     if(indexPath.section==0)
     {
-        [cell setData:self.movies[indexPath.row]];
+        //cell.type = @"genre";
+        [cell registerCollectionView:CustomBtnCollectionViewCell.class withReuseIdentifier:@"genred"];
     }
-    else
+    else if(indexPath.section==1)
     {
-        [cell setTrendingData:self.trendingMovies[indexPath.row]];
-
+        //cell.type = @"title";
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"title"];
     }
+    else {
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"trending"];
+        //cell.type = @"trending";
+    }
+    [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
+    [cell reloadInputViews];
     return cell;
-
+    
 }
 
 
@@ -179,14 +248,14 @@
     return 0;
 }
 
+
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return 2;
+    return 1;
 }
 
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(AFTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
     NSInteger index = cell.collectionView.indexPath.row;
     
     CGFloat horizontalOffset = [self.contentOffsetDictionary[[@(index) stringValue]] floatValue];
@@ -209,22 +278,21 @@
     return 300;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
-    [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UITableViewHeaderFooterView * view = [[UITableViewHeaderFooterView alloc]initWithFrame:CGRectMake(0, 0, 20, 10)];
+    view.textLabel.textColor = UIColor.whiteColor;
+    
     if(section==0)
-    {
-        
-        return @"Genres";
-    }
+        view.textLabel.text = @"Genres";
     else if(section==1)
-    {
-        return @"Popular";
-    }
+        view.textLabel.text = @"Trending";
+    else if(section==2)
+        view.textLabel.text = @"Popular";
     else
-    {
-        return @"Top Rated";
-    }
-}
+        view.textLabel.text = @"Top Rated";
+    
+    return view;
+    
+};
 
 @end

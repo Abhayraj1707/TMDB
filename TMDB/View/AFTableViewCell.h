@@ -16,21 +16,17 @@
 
 @end
 
-static NSString *CollectionViewCellIdentifier = @"titleCell";
+static NSString *CollectionViewCellIdentifier = @"title";
 
 
 @interface AFTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) AFIndexedCollectionView *collectionView;
 
-// testing
-@property (nonatomic, strong) UILabel *titleLabel;
-@property(nonatomic,strong) UIImageView *posterImage;
 
--(void)setData: (Movie*)data;
--(void)setTrendingData :(TrendingMovies*)trendingData;
-
+@property(nonatomic) NSString *type;
 
 - (void)setCollectionViewDataSourceDelegate:(id<UICollectionViewDataSource, UICollectionViewDelegate>)dataSourceDelegate indexPath:(NSIndexPath *)indexPath;
 
+-(void)registerCollectionView: (Class)cellClass withReuseIdentifier: (NSString *)reUseIdentifier;
 @end

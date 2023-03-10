@@ -25,6 +25,9 @@
 		9F63F91F29B76F09007589B4 /* customLabelcell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F91E29B76F09007589B4 /* customLabelcell.m */; };
 		9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92229B86D42007589B4 /* TrendingMovies.swift */; };
 		9F63F92529B8CF90007589B4 /* TrendingResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */; };
+		9F63F92B29BB36E5007589B4 /* CustomBtnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */; };
+		9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92E29BB3AA3007589B4 /* GenreData.swift */; };
+		9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93029BB3B28007589B4 /* MovieGenre.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +77,10 @@
 		9F63F91E29B76F09007589B4 /* customLabelcell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = customLabelcell.m; sourceTree = "<group>"; };
 		9F63F92229B86D42007589B4 /* TrendingMovies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingMovies.swift; sourceTree = "<group>"; };
 		9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingResponseData.swift; sourceTree = "<group>"; };
+		9F63F92929BB36E5007589B4 /* CustomBtnCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomBtnCollectionViewCell.h; sourceTree = "<group>"; };
+		9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnCollectionViewCell.m; sourceTree = "<group>"; };
+		9F63F92E29BB3AA3007589B4 /* GenreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreData.swift; sourceTree = "<group>"; };
+		9F63F93029BB3B28007589B4 /* MovieGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenre.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +176,8 @@
 				9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */,
 				9F63F91D29B76F09007589B4 /* customLabelcell.h */,
 				9F63F91E29B76F09007589B4 /* customLabelcell.m */,
+				9F63F92929BB36E5007589B4 /* CustomBtnCollectionViewCell.h */,
+				9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -181,6 +190,8 @@
 				9F63F90A29B1C607007589B4 /* TMDB-Bridging-Header.h */,
 				9F63F92229B86D42007589B4 /* TrendingMovies.swift */,
 				9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */,
+				9F63F92E29BB3AA3007589B4 /* GenreData.swift */,
+				9F63F93029BB3B28007589B4 /* MovieGenre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -342,13 +353,16 @@
 				9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */,
 				9F63F92529B8CF90007589B4 /* TrendingResponseData.swift in Sources */,
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
+				9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */,
 				9F63F91F29B76F09007589B4 /* customLabelcell.m in Sources */,
+				9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
 				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,
 				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
+				9F63F92B29BB36E5007589B4 /* CustomBtnCollectionViewCell.m in Sources */,
 				9F63F91429B201D0007589B4 /* ResponseData.swift in Sources */,
 				9F44642C29AF4A7C00A99734 /* SceneDelegate.m in Sources */,
 			);
