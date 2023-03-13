@@ -18,6 +18,7 @@
 @implementation ViewController
 - (void) performSearch:(id)paramSender{
     NSLog(@"Action method got called.");
+    
 }
 
 - (void)viewDidLoad {
@@ -51,23 +52,24 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     
-    [self checkAPICall];
+    [self checkTopRatedAPICall];
     [self checkTreandingAPICall];
     [self checkGenreAPICall];
+    [self checkPopularAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
 
 
-- (void)checkAPICall {
+- (void)checkTopRatedAPICall {
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
-    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
+    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/top_rated?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
         }
         
-        self.movies = [data.results copy];
+        self.topRatedmovies = [data.results copy];
         [self reloadData];
     }];
 }
@@ -105,10 +107,25 @@
     }];
 }
 
+- (void)checkPopularAPICall {
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
+        if (error != nil) {
+        }
+        
+        self.popularMovies = [data.results copy];
+        [self reloadData];
+    }];
+}
+
 -(void)reloadData {
-    NSLog(@"movie data %@", self.movies);
+    NSLog(@"TopRatedmovies data %@", self.topRatedmovies);
     NSLog(@" trending data %@", self.trendingMovies);
     NSLog(@"Genre data %@", self.genreMovies);
+    NSLog(@"Popular  data %@", self.popularMovies);
+    
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -117,6 +134,42 @@
 }
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    
+    CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
+    
+    if (titleCell==nil) {
+             titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
+         }
+    AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+    if([cell.type isEqual:@"genre"])
+    {
+        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
+        [titleCell setData:self.popularMovies[indexPath.row]];
+   
+    }
+    else if(([cell.type  isEqual: @"trending"]))
+    {
+        
+        [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+    }
+    else if([cell.type  isEqual: @"popular"])
+    {
+        [titleCell setData:self.popularMovies[indexPath.row]];
+        
+    }
+    else if([cell.type isEqual:@"topRated"])
+    {
+        [titleCell setData:self.topRatedmovies[indexPath.row]];
+    }
+    
+    //[titleCell setData:self.movies[indexPath.row]];
+    
+    return titleCell;
+    
+    
+    
+    
+    /*
     if (indexPath.section == 0) {
         CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
         
@@ -125,10 +178,15 @@
         }
         
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
-        
-        
+        if([cell.type isEqual:@"genre"])
+        {
             [titleCell setData:self.movies[indexPath.row]];
+       
+        }
         return titleCell;
+        
+        
+          
 //        CustomBtnCollectionViewCell * titleCell = (CustomBtnCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"genred" forIndexPath:indexPath];
 //
 //        if (titleCell==nil) {
@@ -150,8 +208,13 @@
         
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
         
+        if(([cell.type  isEqual: @"title"]))
+        {
+            
+                [titleCell setData:self.movies[indexPath.row]];
+        }
         
-            [titleCell setData:self.movies[indexPath.row]];
+     
         return titleCell;
         
     } else {
@@ -162,8 +225,12 @@
         }
         
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+        if([cell.type  isEqual: @"trending"])
+        {
+            [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+        }
         
-            [titleCell setData:self.trendingMovies[indexPath.row]];
+       
         
         return titleCell;
         
@@ -178,21 +245,25 @@
     //    {
     //    }
     return nil;
+     
+     */
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if(section==0)
-        return _genreMovies.count;
+        return _popularMovies.count;
     else if(section==1)
-        return _movies.count;
-    else
         return _trendingMovies.count;
+    else if(section==2)
+        return _popularMovies.count;
+    else if(section==3)
+        return  _topRatedmovies.count;
     return 0;
     
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -207,7 +278,7 @@
     
     static NSString *CellIdentifier = @"horizontalCell";
     
-    AFTableViewCell *cell = nil;//(AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    AFTableViewCell *cell = (AFTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (!cell)
     {
@@ -215,17 +286,22 @@
     }
     if(indexPath.section==0)
     {
-        //cell.type = @"genre";
-        [cell registerCollectionView:CustomBtnCollectionViewCell.class withReuseIdentifier:@"genred"];
+        cell.type = @"genre";
+        [cell registerCollectionView:CustomBtnCollectionViewCell.class withReuseIdentifier:@"genre"];
     }
     else if(indexPath.section==1)
     {
-        //cell.type = @"title";
-        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"title"];
-    }
-    else {
+        cell.type = @"trending";
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"trending"];
-        //cell.type = @"trending";
+    }
+    else if(indexPath.section==2) {
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"popular"];
+        cell.type = @"popular";
+    }
+    else if(indexPath.section==3)
+    {
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"topRated"];
+        cell.type = @"topRated";
     }
     [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
     [cell reloadInputViews];

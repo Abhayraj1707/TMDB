@@ -32,14 +32,13 @@
     self.collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.showsHorizontalScrollIndicator = NO;
     [self.contentView addSubview:self.collectionView];
-    
-    //[self.collectionView registerClass:[CustomBtnCollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+  
     
     return self;
 }
 
 -(void)registerCollectionView: (Class)cellClass withReuseIdentifier: (NSString *)reUseIdentifier {
-    //[self.collectionView registerClass:cellClass forCellWithReuseIdentifier:reUseIdentifier];
+    [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:reUseIdentifier];
 }
 
 -(void)layoutSubviews
@@ -57,7 +56,7 @@
     [self.collectionView setContentOffset:self.collectionView.contentOffset animated:NO];
     [self.collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     
-    //[self.collectionView reloadData];
+    [self.collectionView reloadData];
 }
 
 - (void)reloadInputViews {
