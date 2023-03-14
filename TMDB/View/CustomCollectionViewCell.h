@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 -(void)setData: (Movie*)data;
 -(void)setTrendingData :(TrendingMovies*)trendingData;
+-(void)setPopularTvData :(PopularTV*)popularTvData;
 
 
 @end

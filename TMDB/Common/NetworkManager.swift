@@ -79,4 +79,26 @@ class NetworkManager: NSObject {
                 }
                 dataTask.resume()
     }
+    
+    @objc func getPopularTvDataFromURL(urlStr: NSString, reqType: NSString, headers: NSDictionary, completionHandler: @escaping (PopularTvResponseData?, NSError?) -> ()) {
+        var request = URLRequest(url: URL(string: urlStr as String)!)
+        request.httpMethod = reqType as String
+        let session = URLSession.shared;
+        
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {
+                completionHandler(nil, error as NSError?)
+                return;
+            }
+            
+            do {
+                let responseData = try JSONDecoder().decode(PopularTvResponseData.self, from: data)
+                completionHandler(responseData, nil)
+            } catch {
+                print(error)
+                completionHandler(nil, nil)
+            }
+        }
+        dataTask.resume()
+    }
 }

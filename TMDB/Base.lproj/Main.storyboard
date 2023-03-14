@@ -22,6 +22,9 @@
                                     <segment title="Movies"/>
                                     <segment title="TvShow"/>
                                 </segments>
+                                <connections>
+                                    <action selector="movieTv:" destination="BYZ-38-t0r" eventType="valueChanged" id="l0l-JA-U0O"/>
+                                </connections>
                             </segmentedControl>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genres" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Eq-Ut-Eoj">
                                 <rect key="frame" x="16" y="137" width="69" height="23"/>
@@ -92,6 +95,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="NeatFlix" id="JQD-bN-aVx"/>
                     <connections>
+                        <outlet property="MovieTv" destination="wpP-jz-bXH" id="R8g-sZ-ecs"/>
                         <outlet property="tableView" destination="WfE-4J-wtZ" id="adU-bS-9QS"/>
                         <segue destination="GZf-Sn-wqR" kind="show" id="cst-hm-Wv9"/>
                     </connections>

@@ -16,6 +16,8 @@
 @end
 
 @implementation ViewController
+
+@synthesize MovieTv;
 - (void) performSearch:(id)paramSender{
     NSLog(@"Action method got called.");
     
@@ -56,6 +58,8 @@
     [self checkTreandingAPICall];
     [self checkGenreAPICall];
     [self checkPopularAPICall];
+    [self checkPopularTvAPICall];
+    [self checkTopRatedTvAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
@@ -85,7 +89,6 @@
         }
         
         self.trendingMovies = [trendingData.results copy];
-        NSLog(@"trending movies data %@", self.trendingMovies);
         [self reloadData];
     }];
 }
@@ -102,7 +105,6 @@
             
         }
         self.genreMovies = [genreData.genres copy];
-        NSLog(@"genre movies data %@", self.genreMovies);
         [self reloadData];
     }];
 }
@@ -120,12 +122,44 @@
     }];
 }
 
+- (void)checkPopularTvAPICall {
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getPopularTvDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/tv/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(PopularTvResponseData * _Nullable data, NSError * _Nullable error) {
+        if(error != nil){
+            
+        }
+        self.popularTv = [data.results copy];
+        [self reloadData];
+            
+    }];
+}
+
+- (void)checkTopRatedTvAPICall {
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getPopularTvDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/tv/top_rated?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(PopularTvResponseData * _Nullable data, NSError * _Nullable error) {
+        if(error != nil){
+            
+        }
+        self.topRatedTv= [data.results copy];
+        [self reloadData];
+            
+    }];
+}
+
+
+
+
 -(void)reloadData {
     NSLog(@"TopRatedmovies data %@", self.topRatedmovies);
     NSLog(@" trending data %@", self.trendingMovies);
     NSLog(@"Genre data %@", self.genreMovies);
     NSLog(@"Popular  data %@", self.popularMovies);
-    
+    NSLog(@"Popular tv data %@", self.popularTv);
+    NSLog(@"Popular tv data %@", self.topRatedTv);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
@@ -141,28 +175,46 @@
              titleCell = (CustomCollectionViewCell *)[[UICollectionViewCell alloc]init];
          }
     AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
-    if([cell.type isEqual:@"genre"])
+    if(self.MovieTv.selectedSegmentIndex==0)
     {
-        CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
-        [titleCell setData:self.popularMovies[indexPath.row]];
-   
+        if([cell.type isEqual:@"genre"])
+        {
+            CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
+            [titleCell setData:self.popularMovies[indexPath.row]];
+       
+        }
+        else if(([cell.type  isEqual: @"trending"]))
+        {
+            
+            [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+        }
+        else if([cell.type  isEqual: @"popular"])
+        {
+            [titleCell setData:self.popularMovies[indexPath.row]];
+            
+        }
+        else if([cell.type isEqual:@"topRated"])
+        {
+            [titleCell setData:self.topRatedmovies[indexPath.row]];
+        }
+
     }
-    else if(([cell.type  isEqual: @"trending"]))
-    {
+    else{
         
-        [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+        if([cell.type  isEqual: @"popular"]){
+            [titleCell setPopularTvData:self.popularTv[indexPath.row]];
+        }
+        else if([cell.type isEqual:@"topRated"])
+        {
+            [titleCell setPopularTvData:self.topRatedTv[indexPath.row]];
+        }
+        else if([cell.type isEqual:@"trending"])
+        {
+           [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+        }
+           
+
     }
-    else if([cell.type  isEqual: @"popular"])
-    {
-        [titleCell setData:self.popularMovies[indexPath.row]];
-        
-    }
-    else if([cell.type isEqual:@"topRated"])
-    {
-        [titleCell setData:self.topRatedmovies[indexPath.row]];
-    }
-    
-    //[titleCell setData:self.movies[indexPath.row]];
     
     return titleCell;
     
@@ -371,4 +423,7 @@
     
 };
 
+- (IBAction)movieTv:(id)sender {
+    [self.tableView reloadData];
+}
 @end

@@ -27,6 +27,8 @@
 		9F63F92B29BB36E5007589B4 /* CustomBtnCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */; };
 		9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F92E29BB3AA3007589B4 /* GenreData.swift */; };
 		9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93029BB3B28007589B4 /* MovieGenre.swift */; };
+		9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */; };
+		9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93429C04FE8007589B4 /* PopularTv.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomBtnCollectionViewCell.m; sourceTree = "<group>"; };
 		9F63F92E29BB3AA3007589B4 /* GenreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreData.swift; sourceTree = "<group>"; };
 		9F63F93029BB3B28007589B4 /* MovieGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenre.swift; sourceTree = "<group>"; };
+		9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTvResponseData.swift; sourceTree = "<group>"; };
+		9F63F93429C04FE8007589B4 /* PopularTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTv.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +191,8 @@
 				9F63F92429B8CF90007589B4 /* TrendingResponseData.swift */,
 				9F63F92E29BB3AA3007589B4 /* GenreData.swift */,
 				9F63F93029BB3B28007589B4 /* MovieGenre.swift */,
+				9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */,
+				9F63F93429C04FE8007589B4 /* PopularTv.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -352,8 +358,10 @@
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */,
 				9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */,
+				9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
+				9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */,
 				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,
 				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
 				9F63F92B29BB36E5007589B4 /* CustomBtnCollectionViewCell.m in Sources */,

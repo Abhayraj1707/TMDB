@@ -56,4 +56,16 @@
     });
 }
 
+-(void)setPopularTvData :(PopularTV*)popularTvData{
+    self.titleLabel.text = popularTvData.name;
+    
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", popularTvData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.posterImage.image = [UIImage imageWithData: imageData];
+        });
+    });
+}
+
 @end

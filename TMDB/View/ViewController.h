@@ -14,6 +14,14 @@
 @property(nonatomic) NSMutableArray *trendingMovies;
 @property (nonatomic) NSMutableArray *genreMovies;
 @property(nonatomic) NSMutableArray *popularMovies;
+@property(nonatomic) NSMutableArray *popularTv;
+@property(nonatomic) NSMutableArray *topRatedTv;
+
+
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *MovieTv;
+
+- (IBAction)movieTv:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;
