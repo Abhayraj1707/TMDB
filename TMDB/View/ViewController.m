@@ -19,15 +19,27 @@
 
 @synthesize MovieTv;
 - (void) performSearch:(id)paramSender{
-    NSLog(@"Action method got called.");
+
+    //  want to add search view such that when we click on search button a different view will open and then i wiil customize that view
+    UISearchBar *search = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 60, 400, 40)];
+    [self.view addSubview:search];
+
     
 }
+-(IBAction)Profile_btn:(id)sender
+{
+    //Your code here
+    NSLog(@"profile btn is clicked");
+}
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"neatflix_name.png"]];
     //    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
+ 
     
     self.navigationItem.rightBarButtonItem =
     [[UIBarButtonItem alloc]
@@ -36,23 +48,38 @@
      action:@selector(performSearch:)];
     self.navigationItem.rightBarButtonItem.tintColor = UIColor.whiteColor;
     
-    self.navigationItem.leftBarButtonItem =
-    [[UIBarButtonItem alloc]
-     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-     target:self
-     action:@selector(performSearch:)];
+    
+    UIImage* profileImg = [UIImage imageNamed:@"Profile_image.png"];
+    CGRect frameimg = CGRectMake(0, 0, 5, 5);
+
+    UIButton *profileButton = [[UIButton alloc] initWithFrame:frameimg];
+    [profileButton setBackgroundImage:profileImg forState:UIControlStateNormal];
+    [profileButton addTarget:self action:@selector(Profile_btn:)
+         forControlEvents:UIControlEventTouchUpInside];
+//    [profileButton setShowsTouchWhenHighlighted:YES];
+
+    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
+    self.navigationItem.leftBarButtonItem = mailbutton;
+//    [profileButton release];
+    
+//    self.navigationItem.leftBarButtonItem =
+//    [[UIBarButtonItem alloc]
+//     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+//     target:self
+//     action:@selector(performSearch:)];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
     flowLayout.itemSize = CGSizeMake(241, 300);
-    flowLayout.minimumLineSpacing = 10;
+
     
-    [flowLayout setSectionInset:UIEdgeInsetsMake(40, 10, 10, 10)];
+    [flowLayout setSectionInset:UIEdgeInsetsMake(30, 10, 10, 10)];
     [flowLayout setMinimumLineSpacing:10];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+    
     
     [self checkTopRatedAPICall];
     [self checkTreandingAPICall];
@@ -62,6 +89,7 @@
     [self checkTopRatedTvAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
+
 
 
 
@@ -314,6 +342,8 @@
     
 }
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 4;
 }
@@ -362,19 +392,21 @@
 }
 
 
-- (CGFloat)collectionView:(UICollectionView *)collectionView heightForItemsAtIndexPath:(NSIndexPath *)indexPath
-{
-    if(indexPath.item==0)
-    {
-        return 300.0;
-    }
-    else if(indexPath.item==1)
-    {
-        return 400.0;
-    }
-    
-    return 0;
-}
+
+
+//- (CGFloat)collectionView:(UICollectionView *)collectionView heightForItemsAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if(indexPath.item==0)
+//    {
+//        return 300.0;
+//    }
+//    else if(indexPath.item==1)
+//    {
+//        return 400.0;
+//    }
+//
+//    return 0;
+//}
 
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
