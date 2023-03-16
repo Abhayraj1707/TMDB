@@ -10,6 +10,7 @@
 #import "CustomCollectionViewCell.h"
 #import "AFTableViewCell.h"
 #import "CustomBtnCollectionViewCell.h"
+#import "DetailMovieViewController.h"
 
 @interface ViewController ()
 
@@ -19,11 +20,11 @@
 
 @synthesize MovieTv;
 - (void) performSearch:(id)paramSender{
-
+    
     //  want to add search view such that when we click on search button a different view will open and then i wiil customize that view
     UISearchBar *search = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 60, 400, 40)];
     [self.view addSubview:search];
-
+    
     
 }
 -(IBAction)Profile_btn:(id)sender
@@ -39,7 +40,7 @@
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
     self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"neatflix_name.png"]];
     //    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
- 
+    
     
     self.navigationItem.rightBarButtonItem =
     [[UIBarButtonItem alloc]
@@ -51,27 +52,27 @@
     
     UIImage* profileImg = [UIImage imageNamed:@"Profile_image.png"];
     CGRect frameimg = CGRectMake(0, 0, 5, 5);
-
+    
     UIButton *profileButton = [[UIButton alloc] initWithFrame:frameimg];
     [profileButton setBackgroundImage:profileImg forState:UIControlStateNormal];
     [profileButton addTarget:self action:@selector(Profile_btn:)
-         forControlEvents:UIControlEventTouchUpInside];
-//    [profileButton setShowsTouchWhenHighlighted:YES];
-
+            forControlEvents:UIControlEventTouchUpInside];
+    //    [profileButton setShowsTouchWhenHighlighted:YES];
+    
     UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
     self.navigationItem.leftBarButtonItem = mailbutton;
-//    [profileButton release];
+    //    [profileButton release];
     
-//    self.navigationItem.leftBarButtonItem =
-//    [[UIBarButtonItem alloc]
-//     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-//     target:self
-//     action:@selector(performSearch:)];
+    //    self.navigationItem.leftBarButtonItem =
+    //    [[UIBarButtonItem alloc]
+    //     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
+    //     target:self
+    //     action:@selector(performSearch:)];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
     flowLayout.itemSize = CGSizeMake(241, 300);
-
+    
     
     [flowLayout setSectionInset:UIEdgeInsetsMake(30, 10, 10, 10)];
     [flowLayout setMinimumLineSpacing:10];
@@ -119,6 +120,15 @@
         self.trendingMovies = [trendingData.results copy];
         [self reloadData];
     }];
+}
+
+
+-(void)navigateToDetailVc:(NSIndexPath *) indexPath{
+    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
+    vc.data = self.trendingMovies[indexPath.row];
+    
+    [self.navigationController pushViewController:vc animated:NO];
+    
 }
 
 
@@ -327,6 +337,30 @@
     return nil;
      
      */
+}
+
+
+
+// after clicking the element of collection view this method will work you can load a seperate view for that
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
+    
+    if(self.MovieTv.selectedSegmentIndex==0)
+    {
+        // make a method show trending data and then show it same as set trending data and show some properties
+        if([cell.type  isEqual: @"trending"])
+        {
+            UIView *newView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 400, 400)];
+            [self.view addSubview:newView];
+            
+//            UITableView *tb = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 380, 380)];
+//            tb.backgroundColor = UIColor.blueColor;
+            NSLog(@"%@", _trendingMovies[indexPath.row]);
+        }
+    }
+    
+    [self navigateToDetailVc:indexPath];
+    
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {

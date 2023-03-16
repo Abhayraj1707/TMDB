@@ -29,6 +29,7 @@
 		9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93029BB3B28007589B4 /* MovieGenre.swift */; };
 		9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */; };
 		9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93429C04FE8007589B4 /* PopularTv.swift */; };
+		9F63F93829C2ED89007589B4 /* DetailMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		9F63F93029BB3B28007589B4 /* MovieGenre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGenre.swift; sourceTree = "<group>"; };
 		9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTvResponseData.swift; sourceTree = "<group>"; };
 		9F63F93429C04FE8007589B4 /* PopularTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTv.swift; sourceTree = "<group>"; };
+		9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMovieViewController.h; sourceTree = "<group>"; };
+		9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMovieViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,8 @@
 				9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */,
 				9F63F92929BB36E5007589B4 /* CustomBtnCollectionViewCell.h */,
 				9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */,
+				9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */,
+				9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -357,6 +362,7 @@
 				9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9F63F92329B86D42007589B4 /* TrendingMovies.swift in Sources */,
+				9F63F93829C2ED89007589B4 /* DetailMovieViewController.m in Sources */,
 				9F63F93129BB3B28007589B4 /* MovieGenre.swift in Sources */,
 				9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
