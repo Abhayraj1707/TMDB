@@ -122,16 +122,6 @@
     }];
 }
 
-
--(void)navigateToDetailVc:(NSIndexPath *) indexPath{
-    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
-    vc.data = self.trendingMovies[indexPath.row];
-    
-    [self.navigationController pushViewController:vc animated:NO];
-    
-}
-
-
 -(void)checkGenreAPICall{
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
@@ -344,22 +334,47 @@
 // after clicking the element of collection view this method will work you can load a seperate view for that
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
-    
+    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
     if(self.MovieTv.selectedSegmentIndex==0)
     {
-        // make a method show trending data and then show it same as set trending data and show some properties
         if([cell.type  isEqual: @"trending"])
         {
-            UIView *newView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 400, 400)];
-            [self.view addSubview:newView];
-            
-//            UITableView *tb = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, 380, 380)];
-//            tb.backgroundColor = UIColor.blueColor;
-            NSLog(@"%@", _trendingMovies[indexPath.row]);
+            [vc setTrendingData:self.trendingMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
         }
+        else if([cell.type  isEqual: @"popular"])
+        {
+            [vc setPopularData:self.popularMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        else if([cell.type isEqual:@"topRated"])
+        {
+            [vc setTopRatedData:self.topRatedmovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+      
+    }
+    else
+    {
+        if([cell.type  isEqual: @"trending"])
+        {
+            [vc setTrendingData:self.trendingMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        else if([cell.type  isEqual: @"popular"])
+        {
+            [vc setTvdData:self.popularTv[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        else if([cell.type isEqual:@"topRated"])
+        {
+            [vc setTvdData:self.topRatedTv[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        
     }
     
-    [self navigateToDetailVc:indexPath];
+//    [self navigateToDetailVc:indexPath];
     
 }
 

@@ -17,21 +17,60 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setData:self.data];
+//    [self setData:self.data];
 }
 
 
--(void)setData: (TrendingMovies*)data {
+-(void)setTrendingData: (TrendingMovies*)trendingData {
     dispatch_async(dispatch_get_global_queue(0,0), ^{
-        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", data.poster_path];
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", trendingData.poster_path];
         NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
         dispatch_async(dispatch_get_main_queue(), ^{
             self.imgViewMovie.image = [UIImage imageWithData: imageData];
-            self.lblMovieTitle.text = data.title;
-            self.lblMovieDes.text = data.overview;
+            self.lblMovieTitle.text = trendingData.title;
+            self.lblMovieDes.text = trendingData.overview;
         });
     });
 }
+
+-(void)setPopularData: (Movie*)popularData {
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", popularData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imgViewMovie.image = [UIImage imageWithData: imageData];
+            self.lblMovieTitle.text = popularData.title;
+            self.lblMovieDes.text = popularData.overview;
+        });
+    });
+}
+
+-(void)setTopRatedData: (Movie*)TopRatedData {
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", TopRatedData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imgViewMovie.image = [UIImage imageWithData: imageData];
+            self.lblMovieTitle.text = TopRatedData.title;
+            self.lblMovieDes.text = TopRatedData.overview;
+        });
+    });
+}
+
+-(void)setTvdData: (PopularTV*)TvData {
+    dispatch_async(dispatch_get_global_queue(0,0), ^{
+        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", TvData.poster_path];
+        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.imgViewMovie.image = [UIImage imageWithData: imageData];
+            self.lblMovieTitle.text = TvData.name;
+            self.lblMovieDes.text = TvData.overview;
+        });
+    });
+}
+
+
+
 
 
 
