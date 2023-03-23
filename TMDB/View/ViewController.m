@@ -22,8 +22,8 @@
 - (void) performSearch:(id)paramSender{
     
     //  want to add search view such that when we click on search button a different view will open and then i wiil customize that view
-    UISearchBar *search = [[UISearchBar alloc]initWithFrame:CGRectMake(10, 60, 400, 40)];
-    [self.view addSubview:search];
+    DetailMovieViewController *sb = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailSearchViewController"];
+    [self.navigationController pushViewController:sb animated:NO];
     
     
 }

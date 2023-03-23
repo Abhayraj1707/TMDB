@@ -157,6 +157,34 @@
             </objects>
             <point key="canvasLocation" x="1945.8015267175572" y="7.746478873239437"/>
         </scene>
+        <!--Detail Search View Controller-->
+        <scene sceneID="9kG-5b-c2Z">
+            <objects>
+                <viewController storyboardIdentifier="DetailSearchViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AQa-DQ-PLc" customClass="DetailSearchViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="luW-Nj-D9F">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" text="" translatesAutoresizingMaskIntoConstraints="NO" id="Ug4-uh-tMw">
+                                <rect key="frame" x="0.0" y="122" width="393" height="56"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="AQa-DQ-PLc" id="mM9-8X-PCM"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EMV-Md-Cgk"/>
+                        <color key="backgroundColor" red="0.15294117647058825" green="0.12156862745098039" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchMovie" destination="Ug4-uh-tMw" id="wSX-QF-RHi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cFL-eb-YM8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2726" y="8"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yVO-EZ-sR7">
             <objects>

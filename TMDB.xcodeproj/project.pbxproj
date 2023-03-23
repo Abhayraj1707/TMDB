@@ -30,6 +30,7 @@
 		9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93229C04F78007589B4 /* PopularTvResponseData.swift */; };
 		9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93429C04FE8007589B4 /* PopularTv.swift */; };
 		9F63F93829C2ED89007589B4 /* DetailMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */; };
+		9FD4300F29C9B2F0008E7826 /* DetailSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4300E29C9B2F0008E7826 /* DetailSearchViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,8 @@
 		9F63F93429C04FE8007589B4 /* PopularTv.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularTv.swift; sourceTree = "<group>"; };
 		9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailMovieViewController.h; sourceTree = "<group>"; };
 		9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailMovieViewController.m; sourceTree = "<group>"; };
+		9FD4300D29C9B2F0008E7826 /* DetailSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailSearchViewController.h; sourceTree = "<group>"; };
+		9FD4300E29C9B2F0008E7826 /* DetailSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailSearchViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +185,8 @@
 				9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */,
 				9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */,
 				9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */,
+				9FD4300D29C9B2F0008E7826 /* DetailSearchViewController.h */,
+				9FD4300E29C9B2F0008E7826 /* DetailSearchViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				9F63F93529C04FE8007589B4 /* PopularTv.swift in Sources */,
 				9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */,
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
+				9FD4300F29C9B2F0008E7826 /* DetailSearchViewController.m in Sources */,
 				9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */,
 				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,
 				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
