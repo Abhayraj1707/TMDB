@@ -11,18 +11,18 @@ import Foundation
 class Movie: NSObject, Decodable {
     @objc var id : Int;
     @objc var adult : Bool;
-    @objc var title : String;
+    @objc var title : String?;
     @objc var video : Bool;
-    @objc var overview : String;
+    @objc var overview : String?;
     @objc var popularity : Float;
-    @objc var backdrop_path : String;
-    @objc var poster_path : String;
-    @objc var original_title : String;
-    @objc var release_date : String;
+    @objc var backdrop_path : String?;
+    @objc var poster_path : String?;
+    @objc var original_title : String?;
+    @objc var release_date : String?;
     @objc var vote_count : Int;
     @objc var vote_average : Float;
-    @objc var original_language : String;
-    @objc var genre_ids : [Int];
+    @objc var original_language : String?;
+    @objc var genre_ids : [Int]?;
     
     init(id: Int, adult: Bool, title: String, video: Bool, overview: String, popularity: Float, backdrop_path: String, poster_path: String, original_title: String, release_date: String, vote_count: Int, vote_average: Float, original_language: String, genre_ids: [Int]) {
         self.id = id

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TMDB-Swift.h"
+#import "SearchViewController.h"
 
 @interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 

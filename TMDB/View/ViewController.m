@@ -12,6 +12,7 @@
 #import "CustomBtnCollectionViewCell.h"
 #import "DetailMovieViewController.h"
 
+
 @interface ViewController ()
 
 @end
@@ -20,20 +21,15 @@
 
 @synthesize MovieTv;
 - (void) performSearch:(id)paramSender{
-    
-    //  want to add search view such that when we click on search button a different view will open and then i wiil customize that view
-    DetailMovieViewController *sb = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailSearchViewController"];
+    SearchViewController *sb = [self.storyboard instantiateViewControllerWithIdentifier:@"SearchViewController"];
     [self.navigationController pushViewController:sb animated:NO];
-    
-    
 }
+
 -(IBAction)Profile_btn:(id)sender
 {
     //Your code here
     NSLog(@"profile btn is clicked");
 }
-
-
 
 - (void)viewDidLoad {
     [super viewDidLoad];
