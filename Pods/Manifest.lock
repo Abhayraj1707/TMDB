@@ -1,0 +1,16 @@
+PODS:
+  - RateView (1.2)
+
+DEPENDENCIES:
+  - RateView
+
+SPEC REPOS:
+  trunk:
+    - RateView
+
+SPEC CHECKSUMS:
+  RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
+
+PODFILE CHECKSUM: 2cea854f29e39b725e7b3fddb3eb554c0d1a6752
+
+COCOAPODS: 1.12.0

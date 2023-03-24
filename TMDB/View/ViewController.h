@@ -9,6 +9,7 @@
 #import "TMDB-Swift.h"
 #import "SearchViewController.h"
 
+
 @interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic) NSMutableArray *topRatedmovies;

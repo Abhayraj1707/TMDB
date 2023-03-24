@@ -15,7 +15,9 @@ class NetworkManager: NSObject {
     }
     
     @objc func getDataFromURL(urlStr: NSString, reqType: NSString, headers: NSDictionary, completionHandler: @escaping (ResponseData?, NSError?) -> ()) {
-        var request = URLRequest(url: URL(string: urlStr as String)!)
+        
+        guard let url = URL(string: urlStr as String) else { return }
+        var request = URLRequest(url:url)
         request.httpMethod = reqType as String
         let session = URLSession.shared;
         

@@ -62,13 +62,13 @@
             filePath = "TMDB/Common/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
             landmarkName = "getDataFromURL(urlStr:reqType:headers:completionHandler:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8458D633-5525-4BCF-8BA2-F829DDF43BF7 - 72a165fccba4f237"
+                  uuid = "8458D633-5525-4BCF-8BA2-F829DDF43BF7 - 72a165fccba4f275"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -78,12 +78,12 @@
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
                   offsetFromSymbolStart = "108">
                </Location>
                <Location
-                  uuid = "8458D633-5525-4BCF-8BA2-F829DDF43BF7 - 72a165fccba4f237"
+                  uuid = "8458D633-5525-4BCF-8BA2-F829DDF43BF7 - 72a165fccba4f275"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -93,8 +93,8 @@
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
+                  startingLineNumber = "25"
+                  endingLineNumber = "25"
                   offsetFromSymbolStart = "156">
                </Location>
             </Locations>
@@ -126,8 +126,8 @@
             filePath = "TMDB/View/SearchViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-reloadData"
             landmarkType = "7">
          </BreakpointContent>
