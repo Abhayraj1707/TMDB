@@ -7,7 +7,8 @@ target 'TMDB' do
 
   # Pods for TMDB
   pod 'RateView'
-
+  pod 'SDWebImage', '~> 5.15'
+  
   target 'TMDBTests' do
     inherit! :search_paths
     # Pods for testing

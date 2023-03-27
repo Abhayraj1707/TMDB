@@ -35,6 +35,7 @@
 		9F63F93829C2ED89007589B4 /* DetailMovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */; };
 		9FD4301D29CC50CC008E7826 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4301C29CC50CC008E7826 /* SearchViewController.m */; };
 		9FD4302629CC5CDF008E7826 /* CustomSearchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */; };
+		9FD4302929D081F0008E7826 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4302829D081F0008E7826 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,8 @@
 		9FD4301C29CC50CC008E7826 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		9FD4302429CC5CDF008E7826 /* CustomSearchViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomSearchViewCell.h; sourceTree = "<group>"; };
 		9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomSearchViewCell.m; sourceTree = "<group>"; };
+		9FD4302729D081F0008E7826 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9FD4302829D081F0008E7826 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		BA8FEE93E73ABE0CA4C072A6 /* Pods_TMDB_TMDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_TMDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E31E416A9F9FA77BADC9F9 /* Pods-TMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F6B67F7C4EAF3449782CFA /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +146,6 @@
 				C5E31E416A9F9FA77BADC9F9 /* Pods-TMDBTests.debug.xcconfig */,
 				14532FD75156797A5EFF4D67 /* Pods-TMDBTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -233,6 +235,8 @@
 				9FD4301C29CC50CC008E7826 /* SearchViewController.m */,
 				9FD4302429CC5CDF008E7826 /* CustomSearchViewCell.h */,
 				9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */,
+				9FD4302729D081F0008E7826 /* ProfileViewController.h */,
+				9FD4302829D081F0008E7826 /* ProfileViewController.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -529,6 +533,7 @@
 				9F44643A29AF4A7D00A99734 /* main.m in Sources */,
 				9F63F93329C04F78007589B4 /* PopularTvResponseData.swift in Sources */,
 				9F63F91229B1E3A0007589B4 /* CustomCollectionViewCell.m in Sources */,
+				9FD4302929D081F0008E7826 /* ProfileViewController.m in Sources */,
 				9F63F90C29B1C607007589B4 /* Movie.swift in Sources */,
 				9F63F92B29BB36E5007589B4 /* CustomBtnCollectionViewCell.m in Sources */,
 				9F63F91429B201D0007589B4 /* ResponseData.swift in Sources */,

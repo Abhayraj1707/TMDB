@@ -11,6 +11,7 @@
 #import "AFTableViewCell.h"
 #import "CustomBtnCollectionViewCell.h"
 #import "DetailMovieViewController.h"
+#import "ProfileViewController.h"
 
 
 @interface ViewController ()
@@ -28,7 +29,9 @@
 -(IBAction)Profile_btn:(id)sender
 {
     //Your code here
-    NSLog(@"profile btn is clicked");
+    ProfileViewController *profileView = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    [self.navigationController pushViewController:profileView animated:NO];
+//    NSLog(@"profile btn is clicked");
 }
 
 - (void)viewDidLoad {
@@ -58,12 +61,6 @@
     UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
     self.navigationItem.leftBarButtonItem = mailbutton;
     //    [profileButton release];
-    
-    //    self.navigationItem.leftBarButtonItem =
-    //    [[UIBarButtonItem alloc]
-    //     initWithBarButtonSystemItem:UIBarButtonSystemItemCamera
-    //     target:self
-    //     action:@selector(performSearch:)];
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     

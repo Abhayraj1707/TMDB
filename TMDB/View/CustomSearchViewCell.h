@@ -8,6 +8,9 @@
 #import <UIKit/UIKit.h>
 #import "TMDB-Swift.h"
 #import <RateView/RateView.h>
+#import <SDWebImage/SDWebImage.h>
+
+
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,7 +19,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *movieTitle;
 @property (weak, nonatomic) IBOutlet UILabel *releaseDate;
 @property (weak, nonatomic) IBOutlet RateView *rateView;
-//@property(nonatomic,strong)UIColor* starFillColor;
 -(void)setData: (Movie*)data;
 //-(void)setTVData: (PopularTV*)data;
 @end

@@ -1,16 +1,22 @@
 PODS:
   - RateView (1.2)
+  - SDWebImage (5.15.5):
+    - SDWebImage/Core (= 5.15.5)
+  - SDWebImage/Core (5.15.5)
 
 DEPENDENCIES:
   - RateView
+  - SDWebImage (~> 5.15)
 
 SPEC REPOS:
   trunk:
     - RateView
+    - SDWebImage
 
 SPEC CHECKSUMS:
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
+  SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
 
-PODFILE CHECKSUM: 2cea854f29e39b725e7b3fddb3eb554c0d1a6752
+PODFILE CHECKSUM: 0323c7c3c20f4c5af29f9c65996b49e19f804e2a
 
 COCOAPODS: 1.12.0

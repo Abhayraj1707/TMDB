@@ -6,6 +6,7 @@
 //
 
 #import "ViewController.h"
+#import <SDWebImage/SDWebImage.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UISearchBar *searchMovie;
 @property (weak, nonatomic) IBOutlet UITableView *searchTableView;
 @property(nonatomic) NSMutableArray *filteredData;
+//@property(nonatomic) NSMutableArray *filteredTvData;
 
 @end
 

@@ -83,7 +83,8 @@ class NetworkManager: NSObject {
     }
     
     @objc func getPopularTvDataFromURL(urlStr: NSString, reqType: NSString, headers: NSDictionary, completionHandler: @escaping (PopularTvResponseData?, NSError?) -> ()) {
-        var request = URLRequest(url: URL(string: urlStr as String)!)
+        guard let url = URL(string: urlStr as String) else {return}
+        var request = URLRequest(url:url)
         request.httpMethod = reqType as String
         let session = URLSession.shared;
         

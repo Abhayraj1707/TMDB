@@ -7,6 +7,7 @@
 
 #import "SearchViewController.h"
 #import "CustomSearchViewCell.h"
+#import "ViewController.h"
 
 @interface SearchViewController ()
 
@@ -36,23 +37,21 @@
 //- (void)checkSearchApITVCall :(NSString* )str {
 //    NetworkManager *nm = [[NetworkManager alloc] init];
 //    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-//    
+//
 //    NSString *url = [NSString stringWithFormat:@"https://api.themoviedb.org/3/search/tv?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1&include_adult=false&query=%@",str];
-//    
+//
 //    [nm getPopularTvDataFromURLWithUrlStr:url reqType:@"GET" headers:headers completionHandler:^(PopularTvResponseData * _Nullable data, NSError * _Nullable error) {
 //        if(error != nil){
-//            
+//
 //        }
-//        self.filteredData = [data.results copy];
+//        self.filteredTvData = [data.results copy];
 //        [self reloadData];
-//            
+//
 //    }];
 //}
 
 -(void)reloadData {
     NSLog(@"searched data %@", self.filteredData);
-  
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.searchTableView reloadData];
         
@@ -70,10 +69,7 @@
     }
     //set content
     [searchCell setData:self.filteredData[indexPath.row]];
-//    [searchCell setTVData:self.filteredData[indexPath.row]];
-   
-    
-    
+//    [searchCell setTVData:self.filteredTvData[indexPath.row]];
     
     return searchCell;
 }
@@ -95,4 +91,6 @@
     return 20;
 }
 
+- (IBAction)movieTv:(id)sender {
+}
 @end
