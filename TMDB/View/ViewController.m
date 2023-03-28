@@ -34,12 +34,18 @@
 //    NSLog(@"profile btn is clicked");
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
-    self.navigationItem.titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"neatflix_name.png"]];
-    //    self.navigationItem.titleView = CGSizeMake(50.0, 30.0);
+    UIImage *img = [UIImage imageNamed:@"neatflix_name.png"];
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 40, 40)];
+    [imgView setImage:img];
+    [imgView setContentMode:UIViewContentModeScaleAspectFit];
+    self.navigationItem.titleView = imgView;
     
+    //satus bar update to light
+    [self setNeedsStatusBarAppearanceUpdate];
     
     self.navigationItem.rightBarButtonItem =
     [[UIBarButtonItem alloc]
@@ -49,21 +55,22 @@
     self.navigationItem.rightBarButtonItem.tintColor = UIColor.whiteColor;
     
     
-    UIImage* profileImg = [UIImage imageNamed:@"Profile_image.png"];
-    CGRect frameimg = CGRectMake(0, 0, 5, 5);
+   
     
-    UIButton *profileButton = [[UIButton alloc] initWithFrame:frameimg];
+    UIImage* profileImg = [UIImage imageNamed:@"Profile_image.png"];
+
+    CGRect frameImg = CGRectMake(20, 0, 20, 20);
+//    CGRect frameimg = CGRectMake(0, 0, 5, 5);
+    UIButton *profileButton = [[UIButton alloc] initWithFrame:frameImg];
     [profileButton setBackgroundImage:profileImg forState:UIControlStateNormal];
     [profileButton addTarget:self action:@selector(Profile_btn:)
             forControlEvents:UIControlEventTouchUpInside];
-    //    [profileButton setShowsTouchWhenHighlighted:YES];
-    
-    UIBarButtonItem *mailbutton =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
-    self.navigationItem.leftBarButtonItem = mailbutton;
-    //    [profileButton release];
+
+    UIBarButtonItem *profileBtnItem =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
+    self.navigationItem.leftBarButtonItem = profileBtnItem;
+
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    
     flowLayout.itemSize = CGSizeMake(241, 300);
     
     
@@ -81,10 +88,14 @@
     [self checkPopularAPICall];
     [self checkPopularTvAPICall];
     [self checkTopRatedTvAPICall];
+    [self checkTreandingTvAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
-
+- (UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+    
+}
 
 
 - (void)checkTopRatedAPICall {
@@ -104,13 +115,28 @@
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
-    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/all/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
+    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/movie/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
         if (error != nil) {
-            NSLog(@"treanding error is %@", error);
+            NSLog(@"trending error is %@", error);
             
         }
         
         self.trendingMovies = [trendingData.results copy];
+        [self reloadData];
+    }];
+}
+
+-(void)checkTreandingTvAPICall{
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/tv/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
+        if (error != nil) {
+            NSLog(@"trending error is %@", error);
+            
+        }
+        
+        self.trendingTv = [trendingData.results copy];
         [self reloadData];
     }];
 }
@@ -231,7 +257,7 @@
         }
         else if([cell.type isEqual:@"trending"])
         {
-           [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+           [titleCell setTrendingData:self.trendingTv[indexPath.row]];
         }
            
 
@@ -351,7 +377,7 @@
     {
         if([cell.type  isEqual: @"trending"])
         {
-            [vc setTrendingData:self.trendingMovies[indexPath.row]];
+            [vc setTrendingData:self.trendingTv[indexPath.row]];
             [self.navigationController pushViewController:vc animated:NO];
         }
         else if([cell.type  isEqual: @"popular"])
