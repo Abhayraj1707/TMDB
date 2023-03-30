@@ -27,7 +27,6 @@
     self.pfImg.image = [UIImage imageNamed:@"profileImg.png"];
     self.userName.text = @"Abhay Raj";
     self.userName.textColor = UIColor.whiteColor;
-   
     
 }
 

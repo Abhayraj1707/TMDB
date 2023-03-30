@@ -81,15 +81,15 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     
-    
+    [self checkGenreAPICall];
     [self checkTopRatedAPICall];
     [self checkTrendingAPICall];
-    [self checkGenreAPICall];
     [self checkPopularAPICall];
     [self checkPopularTvAPICall];
     [self checkTopRatedTvAPICall];
     [self checkTrendingTvAPICall];
     [self checkUpcomingAPICall];
+    [self checkRecommendationsAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
@@ -108,7 +108,11 @@
         }
         
         self.topRatedmovies = [data.results copy];
-        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
+//        [self reloadData];
     }];
 }
 
@@ -123,7 +127,11 @@
         }
         
         self.trendingMovies = [trendingData.results copy];
-        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
+//        [self reloadData];
     }];
 }
 
@@ -138,22 +146,29 @@
         }
         
         self.trendingTv = [trendingData.results copy];
-        [self reloadData];
+//        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
     }];
 }
 
 -(void)checkGenreAPICall{
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    
-    
+
     [nm getGenreDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/genre/movie/list?api_key=626c45c82d5332598efa800848ea3571&language=en-US" reqType:@"GET" headers:headers completionHandler:^(GenreData * _Nullable genreData, NSError * _Nullable error) {
         if (error != nil) {
             NSLog(@"Genre error is %@", error);
-            
+
         }
         self.genreMovies = [genreData.genres copy];
-        [self reloadData];
+//        [self reloadData];
+        NSLog(@"Genre data %@", self.genreMovies);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+        });
     }];
 }
 
@@ -166,7 +181,12 @@
         }
         
         self.popularMovies = [data.results copy];
-        [self reloadData];
+//        [self reloadData];
+        NSLog(@"Popular  data %@", self.popularMovies);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
     }];
 }
 
@@ -179,8 +199,11 @@
             
         }
         self.popularTv = [data.results copy];
-        [self reloadData];
-            
+//        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
     }];
 }
 
@@ -193,8 +216,11 @@
             
         }
         self.topRatedTv= [data.results copy];
-        [self reloadData];
-            
+//        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
     }];
 }
 
@@ -208,26 +234,32 @@
         
         if ( data != nil ) {
             self.upcomingMovies = [data.results copy];
-            [self reloadData];
+//            [self reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:5] withRowAnimation:UITableViewRowAnimationNone];
+
+            });
         } else {
             NSLog(@"data is nil");
         }
     }];
 }
-
--(void)reloadData {
-    NSLog(@"TopRatedmovies data %@", self.topRatedmovies);
-    NSLog(@" trending data %@", self.trendingMovies);
-    NSLog(@"Genre data %@", self.genreMovies);
-    NSLog(@"Popular  data %@", self.popularMovies);
-    NSLog(@"Popular tv data %@", self.popularTv);
-    NSLog(@"Popular tv data %@", self.topRatedTv);
-    NSLog(@"upcoming movie data %@", self.upcomingMovies);
+- (void)checkRecommendationsAPICall {
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
+    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/155/recommendations?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
+        if (error != nil) {
+        }
+        self.recommendationMovies = [data.results copy];
+//        [self reloadData];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+
+        });
+    }];
 }
+
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
@@ -238,13 +270,7 @@
     AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
     if(self.MovieTv.selectedSegmentIndex==0)
     {
-        if([cell.type isEqual:@"genre"])
-        {
-            CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
-            [titleCell setData:self.popularMovies[indexPath.row]];
-       
-        }
-        else if(([cell.type  isEqual: @"trending"]))
+       if(([cell.type  isEqual: @"trending"]))
         {
             
             [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
@@ -252,7 +278,6 @@
         else if([cell.type  isEqual: @"popular"])
         {
             [titleCell setData:self.popularMovies[indexPath.row]];
-            
         }
         else if([cell.type isEqual:@"topRated"])
         {
@@ -261,6 +286,10 @@
         else if([cell.type isEqual:@"upcoming"])
         {
             [titleCell setData:self.upcomingMovies[indexPath.row]];
+        }
+        else if([cell.type isEqual:@"recommendations"])
+        {
+            [titleCell setData:self.recommendationMovies[indexPath.row]];
         }
 
     }
@@ -277,15 +306,17 @@
         {
            [titleCell setTrendingData:self.trendingTv[indexPath.row]];
         }
-           
-
+        else if([cell.type isEqual:@"upcoming"])
+        {
+            [titleCell setData:self.upcomingMovies[indexPath.row]];
+        }
+        else if([cell.type isEqual:@"recommendations"])
+        {
+            [titleCell setData:self.recommendationMovies[indexPath.row]];
+        }
     }
     
     return titleCell;
-    
-    
-    
-    
     /*
     if (indexPath.section == 0) {
         CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
@@ -394,6 +425,11 @@
             [vc setUpcomingData:self.upcomingMovies[indexPath.row]];
             [self.navigationController pushViewController:vc animated:NO];
         }
+        else if([cell.type isEqual:@"recommendations"])
+        {
+            [vc setData:self.recommendationMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
       
     }
     else
@@ -413,7 +449,16 @@
             [vc setTvdData:self.topRatedTv[indexPath.row]];
             [self.navigationController pushViewController:vc animated:NO];
         }
-        
+        else if([cell.type isEqual:@"upcoming"])
+        {
+            [vc setUpcomingData:self.upcomingMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        else if([cell.type isEqual:@"recommendations"])
+        {
+            [vc setData:self.recommendationMovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
     }
     
 //    [self navigateToDetailVc:indexPath];
@@ -422,31 +467,29 @@
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if(section==0)
-        return _popularMovies.count;
+        return _genreMovies.count;
     else if(section==1)
-        return _trendingMovies.count;
+        return _recommendationMovies.count;
     else if(section==2)
-        return _popularMovies.count;
+        return _trendingMovies.count;
     else if(section==3)
-        return  _topRatedmovies.count;
+        return _popularMovies.count;
     else if(section==4)
+        return  _topRatedmovies.count;
+    else if(section==5)
         return self.upcomingMovies.count;
     return 0;
     
 }
 
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return 6;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return  1;
 }
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -466,19 +509,24 @@
     }
     else if(indexPath.section==1)
     {
+        cell.type = @"recommendations";
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"recommendations"];
+    }
+    else if(indexPath.section==2)
+    {
         cell.type = @"trending";
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"trending"];
     }
-    else if(indexPath.section==2) {
+    else if(indexPath.section==3) {
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"popular"];
         cell.type = @"popular";
     }
-    else if(indexPath.section==3)
+    else if(indexPath.section==4)
     {
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"topRated"];
         cell.type = @"topRated";
     }
-    else if(indexPath.section==4)
+    else if(indexPath.section==5)
     {
         cell.type = @"upcoming";
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"upcoming"];
@@ -488,29 +536,9 @@
     return cell;
     
 }
-
-
-
-
-//- (CGFloat)collectionView:(UICollectionView *)collectionView heightForItemsAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if(indexPath.item==0)
-//    {
-//        return 300.0;
-//    }
-//    else if(indexPath.item==1)
-//    {
-//        return 400.0;
-//    }
-//
-//    return 0;
-//}
-
-
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
 }
-
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(AFTableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -519,7 +547,6 @@
     CGFloat horizontalOffset = [self.contentOffsetDictionary[[@(index) stringValue]] floatValue];
     [cell.collectionView setContentOffset:CGPointMake(horizontalOffset, 0)];
 }
-
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -533,8 +560,13 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(indexPath.section==0)
+        return 50;
+        
+ 
     return 300;
 }
+
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     UITableViewHeaderFooterView * view = [[UITableViewHeaderFooterView alloc]initWithFrame:CGRectMake(0, 0, 20, 10)];
@@ -543,12 +575,14 @@
     if(section==0)
         view.textLabel.text = @"Genres";
     else if(section==1)
-        view.textLabel.text = @"Trending";
+        view.textLabel.text = @"Recommendations";
     else if(section==2)
-        view.textLabel.text = @"Popular";
+        view.textLabel.text = @"Trending";
     else if(section==3)
-        view.textLabel.text = @"Top Rated";
+        view.textLabel.text = @"Popular";
     else if(section==4)
+        view.textLabel.text = @"Top Rated";
+    else if(section==5)
         view.textLabel.text = @"Upcoming";
     
     return view;

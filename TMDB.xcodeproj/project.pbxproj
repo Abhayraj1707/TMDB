@@ -37,6 +37,7 @@
 		9FD4302629CC5CDF008E7826 /* CustomSearchViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */; };
 		9FD4302929D081F0008E7826 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FD4302829D081F0008E7826 /* ProfileViewController.m */; };
 		9FF58A5829D44BCB00724642 /* UpcomingResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF58A5729D44BCB00724642 /* UpcomingResponseData.swift */; };
+		9FF58A5B29D5AB7400724642 /* ProfileTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FF58A5A29D5AB7400724642 /* ProfileTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,8 @@
 		9FD4302729D081F0008E7826 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		9FD4302829D081F0008E7826 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9FF58A5729D44BCB00724642 /* UpcomingResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingResponseData.swift; sourceTree = "<group>"; };
+		9FF58A5929D5AB7400724642 /* ProfileTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileTableViewCell.h; sourceTree = "<group>"; };
+		9FF58A5A29D5AB7400724642 /* ProfileTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileTableViewCell.m; sourceTree = "<group>"; };
 		BA8FEE93E73ABE0CA4C072A6 /* Pods_TMDB_TMDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_TMDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5E31E416A9F9FA77BADC9F9 /* Pods-TMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1F6B67F7C4EAF3449782CFA /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +242,8 @@
 				9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */,
 				9FD4302729D081F0008E7826 /* ProfileViewController.h */,
 				9FD4302829D081F0008E7826 /* ProfileViewController.m */,
+				9FF58A5929D5AB7400724642 /* ProfileTableViewCell.h */,
+				9FF58A5A29D5AB7400724642 /* ProfileTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -525,6 +530,7 @@
 				9F63F91C29B747EF007589B4 /* AFTableViewCell.m in Sources */,
 				9F63F92529B8CF90007589B4 /* TrendingResponseData.swift in Sources */,
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
+				9FF58A5B29D5AB7400724642 /* ProfileTableViewCell.m in Sources */,
 				9FF58A5829D44BCB00724642 /* UpcomingResponseData.swift in Sources */,
 				9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,

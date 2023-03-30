@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *pfImg;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 
+
 @end
 
 NS_ASSUME_NONNULL_END
