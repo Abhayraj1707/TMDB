@@ -7,6 +7,8 @@
 
 #import "ViewController.h"
 #import <SDWebImage/SDWebImage.h>
+#import "AFTableViewCell.h"
+#import "DetailMovieViewController.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

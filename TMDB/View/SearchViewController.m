@@ -67,12 +67,23 @@
     if (searchCell == nil) {
         searchCell = (CustomSearchViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchCell"];
     }
-    //set content
     [searchCell setData:self.filteredData[indexPath.row]];
 //    [searchCell setTVData:self.filteredTvData[indexPath.row]];
     
     return searchCell;
 }
+
+// select any row and it will lend you to Details controller
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+//    AFTableViewCell *cell = (AFTableViewCell *)tableView.superview.superview;
+    NSLog(@"i am here");
+    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
+    [vc setData:self.filteredData[indexPath.row]];
+    [self.navigationController pushViewController:vc animated:NO];
+}
+
+
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
     return self.filteredData.count;
@@ -91,6 +102,4 @@
     return 20;
 }
 
-- (IBAction)movieTv:(id)sender {
-}
 @end

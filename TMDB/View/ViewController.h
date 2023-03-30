@@ -20,6 +20,7 @@
 @property(nonatomic) NSMutableArray *popularMovies;
 @property(nonatomic) NSMutableArray *popularTv;
 @property(nonatomic) NSMutableArray *topRatedTv;
+@property(nonatomic) NSMutableArray *upcomingMovies;
 
 
 

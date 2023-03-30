@@ -24,10 +24,9 @@
     self.navigationItem.title = @"Profile";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editProfile:)];
     self.profileImage.image = [UIImage imageNamed:@"popcorn.jpeg"];
-    self.pfImg.layer.cornerRadius = 20;
-    self.pfImg.layer.borderWidth = 1;
-    self.pfImg.layer.borderColor = [[UIColor blueColor]CGColor];
-    self.pfImg.image = [UIImage imageNamed:@"profile_img.png"];
+    self.pfImg.image = [UIImage imageNamed:@"profileImg.png"];
+    self.userName.text = @"Abhay Raj";
+    self.userName.textColor = UIColor.whiteColor;
    
     
 }

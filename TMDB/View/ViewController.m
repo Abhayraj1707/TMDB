@@ -83,12 +83,13 @@
     
     
     [self checkTopRatedAPICall];
-    [self checkTreandingAPICall];
+    [self checkTrendingAPICall];
     [self checkGenreAPICall];
     [self checkPopularAPICall];
     [self checkPopularTvAPICall];
     [self checkTopRatedTvAPICall];
-    [self checkTreandingTvAPICall];
+    [self checkTrendingTvAPICall];
+    [self checkUpcomingAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 
@@ -111,7 +112,7 @@
     }];
 }
 
--(void)checkTreandingAPICall{
+-(void)checkTrendingAPICall{
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
@@ -126,7 +127,7 @@
     }];
 }
 
--(void)checkTreandingTvAPICall{
+-(void)checkTrendingTvAPICall{
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
     
@@ -197,8 +198,22 @@
     }];
 }
 
-
-
+- (void)checkUpcomingAPICall {
+    NetworkManager *nm = [[NetworkManager alloc] init];
+    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
+    
+    [nm getUpcomingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/upcoming?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(UpcomingResponseData * _Nullable data, NSError * _Nullable error) {
+        if (error != nil) {
+        }
+        
+        if ( data != nil ) {
+            self.upcomingMovies = [data.results copy];
+            [self reloadData];
+        } else {
+            NSLog(@"data is nil");
+        }
+    }];
+}
 
 -(void)reloadData {
     NSLog(@"TopRatedmovies data %@", self.topRatedmovies);
@@ -207,15 +222,14 @@
     NSLog(@"Popular  data %@", self.popularMovies);
     NSLog(@"Popular tv data %@", self.popularTv);
     NSLog(@"Popular tv data %@", self.topRatedTv);
+    NSLog(@"upcoming movie data %@", self.upcomingMovies);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.tableView reloadData];
-        
     });
 }
 
 - ( UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    
     CustomCollectionViewCell * titleCell = (CustomCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"title" forIndexPath:indexPath];
     
     if (titleCell==nil) {
@@ -243,6 +257,10 @@
         else if([cell.type isEqual:@"topRated"])
         {
             [titleCell setData:self.topRatedmovies[indexPath.row]];
+        }
+        else if([cell.type isEqual:@"upcoming"])
+        {
+            [titleCell setData:self.upcomingMovies[indexPath.row]];
         }
 
     }
@@ -350,7 +368,7 @@
 
 
 
-// after clicking the element of collection view this method will work you can load a seperate view for that
+// after clicking the element of collection view this method will, work you can load a seperate view for that
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
     DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
@@ -369,6 +387,11 @@
         else if([cell.type isEqual:@"topRated"])
         {
             [vc setTopRatedData:self.topRatedmovies[indexPath.row]];
+            [self.navigationController pushViewController:vc animated:NO];
+        }
+        else if([cell.type isEqual:@"upcoming"])
+        {
+            [vc setUpcomingData:self.upcomingMovies[indexPath.row]];
             [self.navigationController pushViewController:vc animated:NO];
         }
       
@@ -406,6 +429,8 @@
         return _popularMovies.count;
     else if(section==3)
         return  _topRatedmovies.count;
+    else if(section==4)
+        return self.upcomingMovies.count;
     return 0;
     
 }
@@ -413,7 +438,7 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 4;
+    return 5;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -452,6 +477,11 @@
     {
         [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"topRated"];
         cell.type = @"topRated";
+    }
+    else if(indexPath.section==4)
+    {
+        cell.type = @"upcoming";
+        [cell registerCollectionView:CustomCollectionViewCell.class withReuseIdentifier:@"upcoming"];
     }
     [cell setCollectionViewDataSourceDelegate:self indexPath:indexPath];
     [cell reloadInputViews];
@@ -516,8 +546,10 @@
         view.textLabel.text = @"Trending";
     else if(section==2)
         view.textLabel.text = @"Popular";
-    else
+    else if(section==3)
         view.textLabel.text = @"Top Rated";
+    else if(section==4)
+        view.textLabel.text = @"Upcoming";
     
     return view;
     
