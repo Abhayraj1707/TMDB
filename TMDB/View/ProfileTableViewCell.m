@@ -9,11 +9,16 @@
 
 @implementation ProfileTableViewCell
 
+
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
     self.preference.text = @"Preference";
-    self.preference.textColor = UIColor.redColor;
+    self.preference.textColor = UIColor.whiteColor;
+    self.enableAdultSearchLbl.text = @"Enable Adult search";
+    self.enableAdultSearchLbl.textColor = UIColor.whiteColor;
+    self.useDeviceThemelbl.text = @"Use Device Theme";
+    self.useDeviceThemelbl.textColor = UIColor.whiteColor;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import "ProfileTableViewCell.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *pfImg;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 
+@property (weak, nonatomic) IBOutlet UIImageView *neatFlixName;
 
 @end
 
