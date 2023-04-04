@@ -16,27 +16,48 @@
 
 @implementation AFTableViewCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier collectionReUse: (NSString *)collectionReUse collectionViewCell: (UICollectionViewCell *)cell
 {
     if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
-    
-   
-    
-    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-    layout.sectionInset = UIEdgeInsetsMake(20, 10, 9, 10);
-    layout.itemSize = CGSizeMake(200, 300);
-    layout.minimumLineSpacing = 10;
-    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-    [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
-    self.collectionView.backgroundColor = [UIColor redColor];
-    self.collectionView.showsHorizontalScrollIndicator = NO;
-    [self.contentView addSubview:self.collectionView];
-  
-    
+
+    self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
+    [self registerCollectionView:[cell class] withReuseIdentifier:collectionReUse];
+//    [self initCollection:[cell class]];
     return self;
 }
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+     layout.sectionInset = UIEdgeInsetsMake(20, 10, 9, 10);
+     layout.itemSize = CGSizeMake(200, 300);
+     layout.minimumLineSpacing = 10;
+     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+     self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+     [self.collectionView registerClass:[CustomCollectionViewCell class] forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+     self.collectionView.backgroundColor = [UIColor redColor];
+     self.collectionView.showsHorizontalScrollIndicator = NO;
+     [self.contentView addSubview:self.collectionView];
+   
+     
+     return self;
+}
+
+//-(void)initCollection: (Class)Coll {
+//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+//    layout.sectionInset = UIEdgeInsetsMake(20, 10, 9, 10);
+//    layout.itemSize = CGSizeMake(200, 300);
+//    layout.minimumLineSpacing = 10;
+//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+//    self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+//    [self.collectionView registerClass:Coll forCellWithReuseIdentifier:CollectionViewCellIdentifier];
+//
+//    self.collectionView.backgroundColor = [UIColor redColor];
+//    self.collectionView.showsHorizontalScrollIndicator = NO;
+//    [self.contentView addSubview:self.collectionView];
+//
+//}
 -(void)registerCollectionView: (Class)cellClass withReuseIdentifier: (NSString *)reUseIdentifier {
     [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:reUseIdentifier];
 }

@@ -1,27 +1,27 @@
 //
-//  AFTableViewCell.h
-//  AFTabledCollectionView
+//  genreTableViewCell.h
+//  TMDB
 //
-//  Created by Ash Furrow on 2013-03-14.
-//  Copyright (c) 2013 Ash Furrow. All rights reserved.
+//  Created by Abhay Raj on 04/04/23.
 //
 
 #import <UIKit/UIKit.h>
-#import "TMDB-Swift.h"
+#import "AFTableViewCell.h"
 
+NS_ASSUME_NONNULL_BEGIN
 
-@interface AFIndexedCollectionView : UICollectionView
-
+@interface genreIndexedCollectionView : UICollectionView
 @property (nonatomic, strong) NSIndexPath *indexPath;
 
 @end
 
-static NSString *CollectionViewCellIdentifier = @"title";
+
+static NSString *genreCollectionViewCellIdentifier = @"genreTitle";
 
 
-@interface AFTableViewCell : UITableViewCell
+@interface genreTableViewCell : AFTableViewCell
 
-@property (nonatomic, strong) AFIndexedCollectionView *collectionView;
+@property (nonatomic, strong) genreIndexedCollectionView *collectionView;
 
 @property(nonatomic) NSString *type;
 
@@ -30,4 +30,7 @@ static NSString *CollectionViewCellIdentifier = @"title";
 -(void)registerCollectionView: (Class)cellClass withReuseIdentifier: (NSString *)reUseIdentifier;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier collectionReUse: (NSString *)collectionReUse collectionViewCell: (UICollectionViewCell *)cell;
+
 @end
+
+NS_ASSUME_NONNULL_END

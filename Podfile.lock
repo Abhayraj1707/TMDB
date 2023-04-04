@@ -1,22 +1,26 @@
 PODS:
+  - PTEHorizontalTableView (1.1.0)
   - RateView (1.2)
   - SDWebImage (5.15.5):
     - SDWebImage/Core (= 5.15.5)
   - SDWebImage/Core (5.15.5)
 
 DEPENDENCIES:
+  - PTEHorizontalTableView
   - RateView
   - SDWebImage (~> 5.15)
 
 SPEC REPOS:
   trunk:
+    - PTEHorizontalTableView
     - RateView
     - SDWebImage
 
 SPEC CHECKSUMS:
+  PTEHorizontalTableView: 635dd91f11206ebeda9f300500e47fe970d56d32
   RateView: d4d12e9bb76dc23a77a56f4e5c5fb530a3f3f998
   SDWebImage: fd7e1a22f00303e058058278639bf6196ee431fe
 
-PODFILE CHECKSUM: 0323c7c3c20f4c5af29f9c65996b49e19f804e2a
+PODFILE CHECKSUM: 2401416c66fea617514f92161aa30bfeef83e618
 
 COCOAPODS: 1.12.0

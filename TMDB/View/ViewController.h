@@ -9,9 +9,10 @@
 #import "TMDB-Swift.h"
 #import "SearchViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <PTEHorizontalTableView/PTEHorizontalTableView.h>
 
 
-@interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource,PTETableViewDelegate>
 
 @property (nonatomic) NSMutableArray *topRatedmovies;
 @property(nonatomic) NSMutableArray *trendingMovies;
@@ -32,6 +33,7 @@
 - (IBAction)movieTv:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet PTEHorizontalTableView *genreTableView;
 @property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;
 
 @end

@@ -83,15 +83,12 @@
     [self.navigationController pushViewController:vc animated:NO];
 }
 
-
-
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
     return self.filteredData.count;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-//    [_filteredData removeAllObjects];
-    
+   
     if(searchText.length >=3){
 //        [self checkSearchApITVCall:searchText];
         [self checkSearchApICall:searchText];

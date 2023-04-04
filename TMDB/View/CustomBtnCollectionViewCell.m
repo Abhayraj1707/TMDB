@@ -29,8 +29,4 @@
     self.genreTitle.titleLabel.text = genreData.name;
 }
 
-
-
-
-
 @end
