@@ -1,17 +1,8 @@
-//
-//  AFTableViewCell.m
-//  AFTabledCollectionView
-//
-//  Created by Ash Furrow on 2013-03-14.
-//  Copyright (c) 2013 Ash Furrow. All rights reserved.
-//
 
 #import "AFTableViewCell.h"
 #import "CustomCollectionViewCell.h"
 #import "CustomBtnCollectionViewCell.h"
-
 @implementation AFIndexedCollectionView
-
 @end
 
 @implementation AFTableViewCell
@@ -19,10 +10,8 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier collectionReUse: (NSString *)collectionReUse collectionViewCell: (UICollectionViewCell *)cell
 {
     if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
-
     self = [self initWithStyle:style reuseIdentifier:reuseIdentifier];
     [self registerCollectionView:[cell class] withReuseIdentifier:collectionReUse];
-//    [self initCollection:[cell class]];
     return self;
 }
 
@@ -30,8 +19,8 @@
 {
     if (!(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier])) return nil;
     UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-     layout.sectionInset = UIEdgeInsetsMake(20, 10, 9, 10);
-     layout.itemSize = CGSizeMake(200, 300);
+     layout.sectionInset = UIEdgeInsetsMake(10, 10, 0, 10);
+     layout.itemSize = CGSizeMake(160, 275);
      layout.minimumLineSpacing = 10;
      layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
      self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];

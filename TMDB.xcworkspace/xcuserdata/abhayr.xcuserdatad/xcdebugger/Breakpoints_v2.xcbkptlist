@@ -7,47 +7,79 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7F074C15-ECA0-4714-A52A-5C777FB87754"
+            uuid = "9D4401C8-8557-46C3-BE30-7A2800F920C0"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Pods/PTEHorizontalTableView/PTEHorizontalTableView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
+            landmarkName = "-tableView:viewForFooterInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "724F0028-A61F-4260-A984-18F42FB75280"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/View/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "418"
-            endingLineNumber = "418"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-collectionView:numberOfItemsInSection:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA534A6F-DCA5-455C-800F-578AD294614B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/View/ViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
+            landmarkName = "-scrollViewDidScroll:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7F074C15-ECA0-4714-A52A-5C777FB87754 - c361e05fed8f96b5"
+                  uuid = "BA534A6F-DCA5-455C-800F-578AD294614B - 1faf3d506f0aa38f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  symbolName = "-[ViewController scrollViewDidScroll:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "410"
-                  endingLineNumber = "410"
-                  offsetFromSymbolStart = "1112">
+                  startingLineNumber = "279"
+                  endingLineNumber = "279"
+                  offsetFromSymbolStart = "96">
                </Location>
                <Location
-                  uuid = "7F074C15-ECA0-4714-A52A-5C777FB87754 - 4d1c09a44d356983"
+                  uuid = "BA534A6F-DCA5-455C-800F-578AD294614B - 1faf3d506f0aa38f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController tableView:cellForRowAtIndexPath:]"
+                  symbolName = "-[ViewController scrollViewDidScroll:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "411"
-                  endingLineNumber = "411"
-                  offsetFromSymbolStart = "140">
+                  startingLineNumber = "279"
+                  endingLineNumber = "279"
+                  offsetFromSymbolStart = "136">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -55,79 +87,47 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "6DCF971D-BB6B-411B-B10F-FBEACE34AB3B"
+            uuid = "7BD5F643-8CD4-4B4E-8A65-779D6F5FB144"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/View/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "349"
+            endingLineNumber = "349"
             landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "40B306DE-7C82-482E-8B9E-96B7E78682E5"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TMDB/View/ViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "436"
-            endingLineNumber = "436"
-            landmarkName = "-tableView:cellForRowAtIndexPath:"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3F9ABEA6-821E-4A24-8183-38523F0CE3A3"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TMDB/View/AFTableViewCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "-initWithStyle:reuseIdentifier:collectionReUse:collectionViewCell:"
-            landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "3F9ABEA6-821E-4A24-8183-38523F0CE3A3 - 812dfb83fe006d59"
+                  uuid = "7BD5F643-8CD4-4B4E-8A65-779D6F5FB144 - 1ef99d4b1650f6c0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AFTableViewCell initWithStyle:reuseIdentifier:collectionReUse:collectionViewCell:]"
+                  symbolName = "-[ViewController collectionView:cellForItemAtIndexPath:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/AFTableViewCell.m"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "288">
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "836">
                </Location>
                <Location
-                  uuid = "3F9ABEA6-821E-4A24-8183-38523F0CE3A3 - 812dfb83fe006d38"
+                  uuid = "7BD5F643-8CD4-4B4E-8A65-779D6F5FB144 - 1ef99d4b1650f6c0"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "-[AFTableViewCell initWithStyle:reuseIdentifier:collectionReUse:collectionViewCell:]"
+                  symbolName = "-[ViewController collectionView:cellForItemAtIndexPath:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/AFTableViewCell.m"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "26"
-                  endingLineNumber = "26"
-                  offsetFromSymbolStart = "288">
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "828">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -135,65 +135,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5C33AD4E-456F-416B-8761-46871A9B7DB4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TMDB/View/ViewController.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "507"
-            endingLineNumber = "507"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "5C33AD4E-456F-416B-8761-46871A9B7DB4 - dc6bd6af567f3384"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController tableView:heightForRowAtIndexPath:]"
-                  moduleName = "TMDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "507"
-                  endingLineNumber = "507"
-                  offsetFromSymbolStart = "260">
-               </Location>
-               <Location
-                  uuid = "5C33AD4E-456F-416B-8761-46871A9B7DB4 - dc6bd6af567f3384"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController tableView:heightForRowAtIndexPath:]"
-                  moduleName = "TMDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "507"
-                  endingLineNumber = "507"
-                  offsetFromSymbolStart = "200">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2CDB9312-238A-4269-867B-437EBF41160C"
+            uuid = "6DC51DFA-C4B6-4089-A4B7-DF419A055F86"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TMDB/View/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
-            landmarkName = "-tableView:heightForRowAtIndexPath:"
+            startingLineNumber = "330"
+            endingLineNumber = "330"
+            landmarkName = "-collectionView:cellForItemAtIndexPath:"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6DC51DFA-C4B6-4089-A4B7-DF419A055F86 - 1ef99d4b1650f03b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:cellForItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "388"
+                  endingLineNumber = "388"
+                  offsetFromSymbolStart = "216">
+               </Location>
+               <Location
+                  uuid = "6DC51DFA-C4B6-4089-A4B7-DF419A055F86 - 1ef99d4b1650f01a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:cellForItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "387"
+                  endingLineNumber = "387"
+                  offsetFromSymbolStart = "224">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

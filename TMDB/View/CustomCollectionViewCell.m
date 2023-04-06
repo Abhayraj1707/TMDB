@@ -15,12 +15,12 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        self.posterImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 160)];
+        self.posterImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 200)];
         self.posterImage.contentMode = UIViewContentModeScaleToFill;
         self.posterImage.layer.cornerRadius = 10;
         self.posterImage.clipsToBounds = true;
         [self.contentView addSubview:self.posterImage];
-        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 150, 100, 75)];
+        self.titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 200, 100, 75)];
         self.titleLabel.textAlignment = NSTextAlignmentCenter;
         self.titleLabel.numberOfLines = 2;
         self.titleLabel.font = [UIFont systemFontOfSize:14];

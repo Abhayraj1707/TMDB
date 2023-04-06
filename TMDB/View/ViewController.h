@@ -33,7 +33,8 @@
 - (IBAction)movieTv:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet PTEHorizontalTableView *genreTableView;
+@property (nonatomic) IBOutlet UICollectionView *genreCollectionView;
+
 @property (nonatomic, strong) NSMutableDictionary *contentOffsetDictionary;
 
 @end

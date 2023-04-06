@@ -13,11 +13,9 @@
 @interface AFIndexedCollectionView : UICollectionView
 
 @property (nonatomic, strong) NSIndexPath *indexPath;
-
 @end
 
 static NSString *CollectionViewCellIdentifier = @"title";
-
 
 @interface AFTableViewCell : UITableViewCell
 

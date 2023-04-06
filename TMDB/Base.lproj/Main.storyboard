@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-4J-wtZ">
-                                <rect key="frame" x="0.0" y="274" width="393" height="634"/>
+                                <rect key="frame" x="0.0" y="233" width="393" height="619"/>
                                 <color key="backgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexBackgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" systemColor="systemGreenColor"/>
@@ -37,43 +37,6 @@
                                     <action selector="movieTv:" destination="BYZ-38-t0r" eventType="valueChanged" id="l0l-JA-U0O"/>
                                 </connections>
                             </segmentedControl>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B0z-1A-HrR" customClass="PTEHorizontalTableView">
-                                <rect key="frame" x="0.0" y="155" width="393" height="111"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="20" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="8F3-9U-5Pr">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="111"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="genreCell" rowHeight="64" id="ZUv-GI-giL">
-                                                <rect key="frame" x="0.0" y="50" width="393" height="64"/>
-                                                <autoresizingMask key="autoresizingMask"/>
-                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZUv-GI-giL" id="uyl-kb-l3e">
-                                                    <rect key="frame" x="0.0" y="0.0" width="393" height="64"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="yhrrfhfjhgfjhgfhgfjhgfjhgfjhgf" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Jk-c8-TTe">
-                                                            <rect key="frame" x="45" y="22" width="109" height="31"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <color key="backgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.31372549020000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" systemColor="linkColor"/>
-                                                </tableViewCellContentView>
-                                            </tableViewCell>
-                                        </prototypes>
-                                    </tableView>
-                                </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="F5K-Zm-tbY"/>
-                                    <outlet property="tableView" destination="8F3-9U-5Pr" id="IXB-K7-bGp"/>
-                                </connections>
-                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.1215686275" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
@@ -81,16 +44,16 @@
                         <constraints>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3UX-As-vvE"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="9TA-fZ-SSe"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WfE-4J-wtZ" secondAttribute="bottom" constant="-90" id="GhW-41-xAO"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WfE-4J-wtZ" secondAttribute="bottom" constant="-34" id="GhW-41-xAO"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JBd-TL-1tA"/>
                             <constraint firstItem="wpP-jz-bXH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="112" id="N4v-ff-RyL"/>
                             <constraint firstItem="wpP-jz-bXH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="13" id="NZj-4n-m5e"/>
-                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="top" secondItem="wpP-jz-bXH" secondAttribute="bottom" constant="127" id="R9l-Ox-y6Y"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="top" secondItem="wpP-jz-bXH" secondAttribute="bottom" constant="86" id="R9l-Ox-y6Y"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X5C-8K-vYR"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="wpP-jz-bXH" secondAttribute="trailing" id="azQ-q4-s9U"/>
-                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="90" id="eb0-8Y-bv8"/>
+                            <constraint firstItem="WfE-4J-wtZ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="34" id="eb0-8Y-bv8"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="f5f-CP-Zc4"/>
-                            <constraint firstAttribute="bottom" secondItem="WfE-4J-wtZ" secondAttribute="bottom" constant="-56" id="fEC-kJ-Uta"/>
+                            <constraint firstAttribute="bottom" secondItem="WfE-4J-wtZ" secondAttribute="bottom" id="fEC-kJ-Uta"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="hg8-lq-V68"/>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="p9i-0U-KRC"/>
                             <constraint firstItem="wpP-jz-bXH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="6.5" id="rE1-fZ-LqE"/>
@@ -102,7 +65,6 @@
                     <navigationItem key="navigationItem" title="NeatFlix" id="JQD-bN-aVx"/>
                     <connections>
                         <outlet property="MovieTv" destination="wpP-jz-bXH" id="R8g-sZ-ecs"/>
-                        <outlet property="genreTableView" destination="B0z-1A-HrR" id="E3I-gL-1hL"/>
                         <outlet property="tableView" destination="WfE-4J-wtZ" id="adU-bS-9QS"/>
                     </connections>
                 </viewController>
@@ -435,9 +397,6 @@
         </scene>
     </scenes>
     <resources>
-        <systemColor name="linkColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

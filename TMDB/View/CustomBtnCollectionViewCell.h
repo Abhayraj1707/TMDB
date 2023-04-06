@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CustomBtnCollectionViewCell : UICollectionViewCell
-@property (nonatomic, strong) UIButton *genreTitle;
+@property (nonatomic) IBOutlet UILabel *genreTitle;
 
 -(void)setGenreData: (MovieGenre*)genreData;
 @end
