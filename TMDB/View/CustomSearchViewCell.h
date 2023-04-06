@@ -20,7 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *releaseDate;
 @property (weak, nonatomic) IBOutlet RateView *rateView;
 -(void)setData: (Movie*)data;
-//-(void)setTVData: (PopularTV*)data;
 @end
 
 NS_ASSUME_NONNULL_END

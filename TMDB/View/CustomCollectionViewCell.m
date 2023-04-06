@@ -10,8 +10,6 @@
 
 @implementation CustomCollectionViewCell
 
-
-
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -26,8 +24,6 @@
         self.titleLabel.font = [UIFont systemFontOfSize:14];
         self.titleLabel.textColor = UIColor.whiteColor;
         [self.contentView addSubview:self.titleLabel];
-       
-        
     }
     return self;
 }

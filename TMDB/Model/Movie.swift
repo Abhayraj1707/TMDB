@@ -42,21 +42,9 @@ class Movie: NSObject, Decodable {
         self.genre_ids = genre_ids
     }
     
-//    init(id: Int, adult: Bool, title: String, video: Bool, overview: String, popularity: Float, backdrop_path: String, poster_path: String, original_title: String, release_date: String, vote_count: Int, vote_average: Float, original_language: String, genre_ids: [Int]) {
-//        self.id = id
-//        self.adult = adult
-//        self.title = title
-//        self.video = video
-//        self.overview = overview
-//        self.popularity = popularity
-//        self.backdrop_path = backdrop_path
-//        self.poster_path = poster_path
-//        self.original_title = original_title
-//        self.release_date = release_date
-//        self.vote_count = vote_count
-//        self.vote_average = vote_average
-//        self.original_language = original_language
-//        self.genre_ids = genre_ids
-//    }
+    func filteredMovie(genreID: Int) -> Bool {
+        let genreIDS = self.genre_ids ?? []
+        return genreIDS.contains(genreID)
+    }
 
 }

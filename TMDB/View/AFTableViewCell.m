@@ -28,25 +28,10 @@
      self.collectionView.backgroundColor = [UIColor redColor];
      self.collectionView.showsHorizontalScrollIndicator = NO;
      [self.contentView addSubview:self.collectionView];
-   
-     
+    
      return self;
 }
 
-//-(void)initCollection: (Class)Coll {
-//    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-//    layout.sectionInset = UIEdgeInsetsMake(20, 10, 9, 10);
-//    layout.itemSize = CGSizeMake(200, 300);
-//    layout.minimumLineSpacing = 10;
-//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-//    self.collectionView = [[AFIndexedCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
-//    [self.collectionView registerClass:Coll forCellWithReuseIdentifier:CollectionViewCellIdentifier];
-//
-//    self.collectionView.backgroundColor = [UIColor redColor];
-//    self.collectionView.showsHorizontalScrollIndicator = NO;
-//    [self.contentView addSubview:self.collectionView];
-//
-//}
 -(void)registerCollectionView: (Class)cellClass withReuseIdentifier: (NSString *)reUseIdentifier {
     [self.collectionView registerClass:cellClass forCellWithReuseIdentifier:reUseIdentifier];
 }
@@ -54,7 +39,6 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    
     self.collectionView.frame = self.contentView.bounds;
 }
 

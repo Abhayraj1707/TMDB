@@ -180,5 +180,84 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0920E6C8-6187-43D3-A93D-C734586A8B81"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/View Controllers/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "getTrendingData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/View Controllers/ViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "437"
+            endingLineNumber = "437"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451400cb6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "463"
+                  endingLineNumber = "463"
+                  offsetFromSymbolStart = "956">
+               </Location>
+               <Location
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451400c95"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "462"
+                  endingLineNumber = "462"
+                  offsetFromSymbolStart = "724">
+               </Location>
+               <Location
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae4514009ec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "437"
+                  endingLineNumber = "437"
+                  offsetFromSymbolStart = "724">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

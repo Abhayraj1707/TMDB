@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8463C54B7C379BF6053462C0 /* Pods_TMDB_TMDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857742E953BF432840ADF99A /* Pods_TMDB_TMDBUITests.framework */; };
+		9F039AA729DEC5FB000B77B8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F039AA629DEC5FB000B77B8 /* ViewModel.swift */; };
 		9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642829AF4A7C00A99734 /* AppDelegate.m */; };
 		9F44642C29AF4A7C00A99734 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642B29AF4A7C00A99734 /* SceneDelegate.m */; };
 		9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642E29AF4A7C00A99734 /* ViewController.m */; };
@@ -62,6 +63,7 @@
 		25C6F77F643342662DDFBF23 /* Pods_TMDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		824F90C8D500D39B714A8698 /* Pods-TMDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TMDBTests.debug.xcconfig"; path = "Target Support Files/Pods-TMDBTests/Pods-TMDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		857742E953BF432840ADF99A /* Pods_TMDB_TMDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_TMDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F039AA629DEC5FB000B77B8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9F2DCEC24D66D2632CCEC5B8 /* Pods_TMDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44642429AF4A7C00A99734 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44642729AF4A7C00A99734 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +166,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9F039AA529DEC488000B77B8 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9F44642D29AF4A7C00A99734 /* ViewController.h */,
+				9F44642E29AF4A7C00A99734 /* ViewController.m */,
+				9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */,
+				9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */,
+				9FD4301B29CC50CC008E7826 /* SearchViewController.h */,
+				9FD4301C29CC50CC008E7826 /* SearchViewController.m */,
+				9FD4302729D081F0008E7826 /* ProfileViewController.h */,
+				9FD4302829D081F0008E7826 /* ProfileViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		9F039AA829DECD5B000B77B8 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				9F039AA629DEC5FB000B77B8 /* ViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		9F44641B29AF4A7C00A99734 = {
 			isa = PBXGroup;
 			children = (
@@ -189,6 +214,8 @@
 		9F44642629AF4A7C00A99734 /* TMDB */ = {
 			isa = PBXGroup;
 			children = (
+				9F039AA829DECD5B000B77B8 /* ViewModels */,
+				9F039AA529DEC488000B77B8 /* View Controllers */,
 				9F63F90F29B1CEF5007589B4 /* Storyboards */,
 				9F63F90E29B1CECA007589B4 /* Resource */,
 				9F63F90029B0ADC2007589B4 /* Model */,
@@ -226,22 +253,14 @@
 		9F63F8FF29B0AD92007589B4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9F44642D29AF4A7C00A99734 /* ViewController.h */,
-				9F44642E29AF4A7C00A99734 /* ViewController.m */,
 				9F63F91B29B747EF007589B4 /* AFTableViewCell.h */,
 				9F63F91A29B747EE007589B4 /* AFTableViewCell.m */,
 				9F63F91029B1E3A0007589B4 /* CustomCollectionViewCell.h */,
 				9F63F91129B1E3A0007589B4 /* CustomCollectionViewCell.m */,
 				9F63F92929BB36E5007589B4 /* CustomBtnCollectionViewCell.h */,
 				9F63F92A29BB36E5007589B4 /* CustomBtnCollectionViewCell.m */,
-				9F63F93629C2ED89007589B4 /* DetailMovieViewController.h */,
-				9F63F93729C2ED89007589B4 /* DetailMovieViewController.m */,
-				9FD4301B29CC50CC008E7826 /* SearchViewController.h */,
-				9FD4301C29CC50CC008E7826 /* SearchViewController.m */,
 				9FD4302429CC5CDF008E7826 /* CustomSearchViewCell.h */,
 				9FD4302529CC5CDF008E7826 /* CustomSearchViewCell.m */,
-				9FD4302729D081F0008E7826 /* ProfileViewController.h */,
-				9FD4302829D081F0008E7826 /* ProfileViewController.m */,
 				9FF58A5929D5AB7400724642 /* ProfileTableViewCell.h */,
 				9FF58A5A29D5AB7400724642 /* ProfileTableViewCell.m */,
 			);
@@ -532,6 +551,7 @@
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
 				9FF58A5B29D5AB7400724642 /* ProfileTableViewCell.m in Sources */,
 				9FF58A5829D44BCB00724642 /* UpcomingResponseData.swift in Sources */,
+				9F039AA729DEC5FB000B77B8 /* ViewModel.swift in Sources */,
 				9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,
 				9FD4301D29CC50CC008E7826 /* SearchViewController.m in Sources */,

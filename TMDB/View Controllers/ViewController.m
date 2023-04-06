@@ -12,13 +12,14 @@
 #import "CustomBtnCollectionViewCell.h"
 #import "DetailMovieViewController.h"
 #import "ProfileViewController.h"
-#import "genreTableViewCell.h"
+//#import "genreTableViewCell.h"
 
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
+ViewModel *viewModel;
 
 @synthesize MovieTv;
 - (void) performSearch:(id)paramSender{
@@ -34,6 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    viewModel = [[ViewModel alloc] initWithGenre:0];
+    
     
     UICollectionViewFlowLayout* flowLayout = [[UICollectionViewFlowLayout alloc] init];
     flowLayout.itemSize = CGSizeMake(116, 30);
@@ -75,10 +79,22 @@
     [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
     
+    //weak self write
+    [viewModel loadTrendingDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
+    [viewModel loadPopularDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
+    [viewModel loadTopRatedDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+     
+ 
+    
     [self checkGenreAPICall];
-    [self checkTopRatedAPICall];
-    [self checkTrendingAPICall];
-    [self checkPopularAPICall];
     [self checkPopularTvAPICall];
     [self checkTopRatedTvAPICall];
     [self checkTrendingTvAPICall];
@@ -88,33 +104,6 @@
 }
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
-}
-
-- (void)checkTopRatedAPICall {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/top_rated?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
-        if (error != nil) {
-        }
-        self.topRatedmovies = [data.results copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
-        });
-    }];
-}
-
--(void)checkTrendingAPICall{
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/movie/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"trending error is %@", error);
-        }
-        self.trendingMovies = [trendingData.results copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
-        });
-    }];
 }
 
 -(void)checkTrendingTvAPICall{
@@ -142,21 +131,6 @@
             
         }
         self.genreMovies = [genreData.genres copy];
-        NSLog(@"Genre data %@", self.genreMovies);
-    }];
-}
-
-- (void)checkPopularAPICall {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
-        if (error != nil) {
-        }
-        self.popularMovies = [data.results copy];
-        NSLog(@"Popular  data %@", self.popularMovies);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
-        });
     }];
 }
 
@@ -342,16 +316,15 @@
         {
             if(([cell.type  isEqual: @"trending"]))
             {
-                [titleCell setTrendingData:self.trendingMovies[indexPath.row]];
+                [titleCell setTrendingData:viewModel.trendingMovies[indexPath.row]];
             }
             else if([cell.type  isEqual: @"popular"])
             {
-                NSLog(@"%ld", (long)indexPath.row);;
-                [titleCell setData:self.popularMovies[indexPath.row]];
+                [titleCell setData:viewModel.popularMovies[indexPath.row]];
             }
             else if([cell.type isEqual:@"topRated"])
             {
-                [titleCell setData:self.topRatedmovies[indexPath.row]];
+                [titleCell setData:viewModel.topRatedmovies[indexPath.row]];
             }
             else if([cell.type isEqual:@"upcoming"])
             {
@@ -399,15 +372,15 @@
         {
             if(([cell.type  isEqual: @"trending"]))
             {
-                return _trendingMovies.count;
+                return viewModel.getTrendingData.count;
             }
             else if([cell.type  isEqual: @"popular"])
             {
-                return _popularMovies.count;
+                return viewModel.getPopularData.count;
             }
             else if([cell.type isEqual:@"topRated"])
             {
-                return _topRatedmovies.count;
+                return viewModel.getTopRatedData.count;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
@@ -447,7 +420,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if(collectionView==self.genreCollectionView)
     {
-        
+        [self loadFilteredData: (int)[(MovieGenre *)_genreMovies[indexPath.row] genreID]];
     }
     else{
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
@@ -456,17 +429,17 @@
         {
             if([cell.type  isEqual: @"trending"])
             {
-                [vc setTrendingData:self.trendingMovies[indexPath.row]];
+                [vc setTrendingData:viewModel.trendingMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type  isEqual: @"popular"])
             {
-                [vc setPopularData:self.popularMovies[indexPath.row]];
+                [vc setPopularData:viewModel.popularMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type isEqual:@"topRated"])
             {
-                [vc setTopRatedData:self.topRatedmovies[indexPath.row]];
+                [vc setTopRatedData:viewModel.topRatedmovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type isEqual:@"upcoming"])
@@ -510,4 +483,10 @@
         }
     }
 }
+
+-(void)loadFilteredData: (int)genre {
+    viewModel.genre = genre;
+    [self.tableView reloadData];
+}
+
 @end

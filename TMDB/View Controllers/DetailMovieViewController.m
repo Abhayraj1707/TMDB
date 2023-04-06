@@ -19,8 +19,6 @@
 
 }
 
-
-
 -(void)setTrendingData: (TrendingMovies*)trendingData {
     dispatch_async(dispatch_get_global_queue(0,0), ^{
         NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", trendingData.poster_path];

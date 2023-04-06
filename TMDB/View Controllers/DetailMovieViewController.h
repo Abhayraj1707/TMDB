@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface DetailMovieViewController : UIViewController
 @property (weak,nonatomic) NSMutableDictionary *dictDetail;
-//@property(weak,nonatomic)  TrendingMovies *data;
 @property (weak,nonatomic) NSString *titleStr;
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewMovie;
 @property (weak, nonatomic) IBOutlet UILabel *lblMovieTitle;

@@ -17,4 +17,8 @@ class MovieGenre : NSObject, Decodable {
         self.id = id;
         self.name = name;
     }
+    
+    @objc func genreID() -> Int {
+        return self.id
+    }
 }

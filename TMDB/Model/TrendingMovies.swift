@@ -44,5 +44,9 @@ class TrendingMovies: NSObject, Decodable {
         self.media_type = media_type;
      
     }
-
+    
+    func filteredMovie(genreID: Int) -> Bool {
+        let genreIDS = self.genre_ids ?? []
+        return genreIDS.contains(genreID)
+    }
 }

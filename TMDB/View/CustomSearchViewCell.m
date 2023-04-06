@@ -18,11 +18,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-     
-    // Configure the view for the selected state
 }
-
-
 
 -(void)setData: (Movie*)data {
     self.movieTitle.text = data.title;
@@ -47,19 +43,6 @@
         });
     });
 }
-
-//-(void)setTVData: (PopularTV*)data {
-//    self.movieTitle.text = data.name;
-//    self.releaseDate.text = data.first_air_date;
-//
-//    dispatch_async(dispatch_get_global_queue(0,0), ^{
-//        NSString *urlStr = [NSString stringWithFormat:@"https://image.tmdb.org/t/p/original%@", data.poster_path];
-//        NSData * imageData = [[NSData alloc] initWithContentsOfURL: [NSURL URLWithString: urlStr]];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            self.posterImage.image = [UIImage imageWithData: imageData];
-//        });
-//    });
-//}
 
 
 @end
