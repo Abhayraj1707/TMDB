@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIImageView *imgViewMovie;
 @property (weak, nonatomic) IBOutlet UILabel *lblMovieTitle;
 @property (weak, nonatomic) IBOutlet UILabel *lblMovieDes;
+@property (weak, nonatomic) IBOutlet UILabel *ratingLbl;
 -(void)setTrendingData: (TrendingMovies*)trendingData;
 -(void)setPopularData: (Movie*)popularData;
 -(void)setTopRatedData: (Movie*)TopRatedData;

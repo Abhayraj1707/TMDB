@@ -19,8 +19,8 @@
                         <subviews>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="WfE-4J-wtZ">
                                 <rect key="frame" x="0.0" y="233" width="393" height="619"/>
-                                <color key="backgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" systemColor="systemGreenColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="l6T-fK-a2S"/>
@@ -39,7 +39,7 @@
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.15294117647058825" green="0.1215686275" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" systemColor="systemYellowColor"/>
                         <constraints>
                             <constraint firstItem="WfE-4J-wtZ" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3UX-As-vvE"/>
@@ -87,28 +87,37 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVd-ro-Txo">
-                                <rect key="frame" x="8" y="757.66666666666663" width="377" height="20.333333333333371"/>
+                                <rect key="frame" x="8" y="759" width="377" height="20.333333333333371"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wwP-QD-gmj">
-                                <rect key="frame" x="0.0" y="697.66666666666663" width="393" height="36"/>
+                                <rect key="frame" x="0.0" y="686" width="393" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="uqr-PQ-mkY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6iJ-we-sd5">
+                                <rect key="frame" x="8" y="730" width="328" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1wj-cv-iba"/>
-                        <color key="backgroundColor" red="0.15294117647058825" green="0.12156862745098039" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="lVd-ro-Txo" firstAttribute="top" secondItem="wwP-QD-gmj" secondAttribute="bottom" constant="24" id="Hjc-6q-6f3"/>
+                            <constraint firstItem="6iJ-we-sd5" firstAttribute="top" secondItem="wwP-QD-gmj" secondAttribute="bottom" constant="8" id="68f-Wm-e8d"/>
+                            <constraint firstItem="lVd-ro-Txo" firstAttribute="top" secondItem="wwP-QD-gmj" secondAttribute="bottom" constant="37" id="Hjc-6q-6f3"/>
+                            <constraint firstItem="1wj-cv-iba" firstAttribute="trailing" secondItem="6iJ-we-sd5" secondAttribute="trailing" constant="57" id="Iae-QJ-tgf"/>
                             <constraint firstItem="wwP-QD-gmj" firstAttribute="leading" secondItem="1wj-cv-iba" secondAttribute="leading" id="Orh-zU-gqr"/>
                             <constraint firstItem="sTU-f6-Wkz" firstAttribute="leading" secondItem="1wj-cv-iba" secondAttribute="leading" id="PkZ-nx-cfi"/>
-                            <constraint firstItem="1wj-cv-iba" firstAttribute="bottom" secondItem="lVd-ro-Txo" secondAttribute="bottom" constant="40" id="SM0-Tf-wDO"/>
+                            <constraint firstItem="1wj-cv-iba" firstAttribute="bottom" secondItem="lVd-ro-Txo" secondAttribute="bottom" constant="38.666666666666629" id="SM0-Tf-wDO"/>
                             <constraint firstItem="lVd-ro-Txo" firstAttribute="trailing" secondItem="wwP-QD-gmj" secondAttribute="trailing" constant="-8" id="Wer-9i-q0u"/>
+                            <constraint firstItem="6iJ-we-sd5" firstAttribute="leading" secondItem="lVd-ro-Txo" secondAttribute="leading" id="aRb-3E-Bje"/>
                             <constraint firstItem="1wj-cv-iba" firstAttribute="trailing" secondItem="wwP-QD-gmj" secondAttribute="trailing" id="e03-J8-ygR"/>
                             <constraint firstItem="lVd-ro-Txo" firstAttribute="leading" secondItem="wwP-QD-gmj" secondAttribute="leading" constant="8" id="jWX-Fm-ET5"/>
                             <constraint firstItem="1wj-cv-iba" firstAttribute="trailing" secondItem="sTU-f6-Wkz" secondAttribute="trailing" id="m5W-jC-E8Q"/>
@@ -120,6 +129,7 @@
                         <outlet property="imgViewMovie" destination="sTU-f6-Wkz" id="Vid-es-UyG"/>
                         <outlet property="lblMovieDes" destination="lVd-ro-Txo" id="O13-gY-0G9"/>
                         <outlet property="lblMovieTitle" destination="wwP-QD-gmj" id="k9O-Ly-dPO"/>
+                        <outlet property="ratingLbl" destination="6iJ-we-sd5" id="8sU-YS-ggJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q8o-yI-yRi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -149,7 +159,7 @@
                                 <rect key="frame" x="0.0" y="149" width="403" height="703"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <color key="sectionIndexBackgroundColor" red="0.14117647059999999" green="0.1333333333" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCell" rowHeight="200" id="HUo-EY-7MX" customClass="CustomSearchViewCell">
                                         <rect key="frame" x="0.0" y="50" width="403" height="200"/>
@@ -220,7 +230,7 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Byx-xe-Q1O"/>
-                        <color key="backgroundColor" red="0.14117647058823529" green="0.13333333333333333" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <outlet property="searchMovie" destination="pB4-6a-YVs" id="7iA-dR-qtj"/>
@@ -345,7 +355,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="wFd-lY-axX"/>
-                        <color key="backgroundColor" red="0.14117647059999999" green="0.1215686275" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.086274509803921567" green="0.054901960784313725" blue="0.20392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wFd-lY-axX" firstAttribute="trailing" secondItem="elC-KC-Uq8" secondAttribute="trailing" constant="144.33333333333331" id="1p5-TY-XLp"/>
                             <constraint firstItem="ihC-A9-4lL" firstAttribute="leading" secondItem="Yek-5d-wK7" secondAttribute="leading" id="9wf-bJ-Cz7"/>

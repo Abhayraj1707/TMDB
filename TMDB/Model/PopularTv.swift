@@ -40,6 +40,11 @@ class PopularTv : NSObject, Decodable{
         self.original_name = original_name
         self.genre_ids = genre_ids
     }
+    
+    func filteredTV(genreID: Int) -> Bool {
+        let genreIDS = self.genre_ids ?? []
+        return genreIDS.contains(genreID)
+    }
 
 }
 

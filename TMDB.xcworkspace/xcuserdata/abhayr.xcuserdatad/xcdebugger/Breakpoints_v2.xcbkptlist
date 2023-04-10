@@ -206,13 +206,13 @@
             filePath = "TMDB/View Controllers/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "437"
-            endingLineNumber = "437"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451400cb6"
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451403569"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -222,12 +222,12 @@
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "463"
-                  endingLineNumber = "463"
-                  offsetFromSymbolStart = "956">
+                  startingLineNumber = "402"
+                  endingLineNumber = "402"
+                  offsetFromSymbolStart = "236">
                </Location>
                <Location
-                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451400c95"
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae451403569"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -237,12 +237,12 @@
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "462"
-                  endingLineNumber = "462"
+                  startingLineNumber = "402"
+                  endingLineNumber = "402"
                   offsetFromSymbolStart = "724">
                </Location>
                <Location
-                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae4514009ec"
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae45140379f"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -252,11 +252,43 @@
                   urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "437"
-                  endingLineNumber = "437"
+                  startingLineNumber = "392"
+                  endingLineNumber = "392"
                   offsetFromSymbolStart = "724">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "67C53BF6-FD5C-42AD-AAB5-0F64F10D3B36"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/ViewModels/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "loadTrendingData(completionHandler:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "47CF61C0-BD6C-418E-BCD3-4E03274D3BFC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/ViewModels/ViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "loadTrendingData(completionHandler:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

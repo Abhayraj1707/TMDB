@@ -48,7 +48,7 @@ ViewModel *viewModel;
     [self.genreCollectionView setDataSource:self];
     [self.genreCollectionView setDelegate:self];
     [_genreCollectionView registerClass:[CustomBtnCollectionViewCell class] forCellWithReuseIdentifier:@"genreCell"];
-    [_genreCollectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+    [_genreCollectionView setBackgroundColor:[UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1]];
     [self.view addSubview:_genreCollectionView];
     [_genreCollectionView reloadData];
     
@@ -76,11 +76,15 @@ ViewModel *viewModel;
     
     UIBarButtonItem *profileBtnItem =[[UIBarButtonItem alloc] initWithCustomView:profileButton];
     self.navigationItem.leftBarButtonItem = profileBtnItem;
-    [self.view setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
-    [self.tableView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+    [self.view setBackgroundColor:[UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1]];
+    [self.tableView setBackgroundColor:[UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1]];
     
     //weak self write
     [viewModel loadTrendingDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
+    [viewModel loadTrendingTvDataWithCompletionHandler:^{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
     }];
     
@@ -88,37 +92,28 @@ ViewModel *viewModel;
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
     }];
     
+    [viewModel loadPopularTvDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    
     [viewModel loadTopRatedDataWithCompletionHandler:^{
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:3] withRowAnimation:UITableViewRowAnimationNone];
     }];
-     
+    [viewModel loadUpcomingDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
+    }];
+    [viewModel loadRecommendationDataWithCompletionHandler:^{
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+    }];
  
+     
     
     [self checkGenreAPICall];
-    [self checkPopularTvAPICall];
     [self checkTopRatedTvAPICall];
-    [self checkTrendingTvAPICall];
-    [self checkUpcomingAPICall];
-    [self checkRecommendationsAPICall];
     self.contentOffsetDictionary = [NSMutableDictionary dictionary];
 }
 - (UIStatusBarStyle)preferredStatusBarStyle{
     return UIStatusBarStyleLightContent;
-}
-
--(void)checkTrendingTvAPICall{
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    
-    [nm getTrendingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/trending/tv/day?api_key=626c45c82d5332598efa800848ea3571" reqType:@"GET" headers:headers completionHandler:^(TrendingResponseData * _Nullable trendingData, NSError * _Nullable error) {
-        if (error != nil) {
-            NSLog(@"trending error is %@", error);
-        }
-        self.trendingTv = [trendingData.results copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationNone];
-        });
-    }];
 }
 
 -(void)checkGenreAPICall{
@@ -134,20 +129,6 @@ ViewModel *viewModel;
     }];
 }
 
-- (void)checkPopularTvAPICall {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getPopularTvDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/tv/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(PopularTvResponseData * _Nullable data, NSError * _Nullable error) {
-        if(error != nil){
-            
-        }
-        self.popularTv = [data.results copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:2] withRowAnimation:UITableViewRowAnimationNone];
-        });
-    }];
-}
-
 - (void)checkTopRatedTvAPICall {
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
@@ -159,32 +140,6 @@ ViewModel *viewModel;
     }];
 }
 
-- (void)checkUpcomingAPICall {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getUpcomingDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/upcoming?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(UpcomingResponseData * _Nullable data, NSError * _Nullable error) {
-        if (data != nil ) {
-            self.upcomingMovies = [data.results copy];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:4] withRowAnimation:UITableViewRowAnimationNone];
-            });
-        } else {
-            NSLog(@"data is nil");
-        }
-    }];
-}
-- (void)checkRecommendationsAPICall {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    [nm getDataFromURLWithUrlStr:@"https://api.themoviedb.org/3/movie/155/recommendations?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
-        if (error != nil) {
-        }
-        self.recommendationMovies = [data.results copy];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
-        });
-    }];
-}
 
 - (IBAction)movieTv:(id)sender {
     [self.tableView reloadData];
@@ -328,17 +283,17 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                [titleCell setData:self.upcomingMovies[indexPath.row]];
+                [titleCell setData:viewModel.upcomingMovies[indexPath.row]];
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                [titleCell setData:self.recommendationMovies[indexPath.row]];
+                [titleCell setData:viewModel.recommendationMovies[indexPath.row]];
             }
         }
         else{
             
             if([cell.type  isEqual: @"popular"]){
-                [titleCell setPopularTvData:self.popularTv[indexPath.row]];
+                [titleCell setPopularTvData:viewModel.popularTv[indexPath.row]];
             }
             else if([cell.type isEqual:@"topRated"])
             {
@@ -346,15 +301,15 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"trending"])
             {
-                [titleCell setTrendingData:self.trendingTv[indexPath.row]];
+                [titleCell setTrendingData:viewModel.trendingTv[indexPath.row]];
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                [titleCell setData:self.upcomingMovies[indexPath.row]];
+                [titleCell setData:viewModel.upcomingMovies[indexPath.row]];
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                [titleCell setData:self.recommendationMovies[indexPath.row]];
+                [titleCell setData:viewModel.recommendationMovies[indexPath.row]];
             }
         }
         return titleCell;
@@ -364,6 +319,7 @@ ViewModel *viewModel;
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if(collectionView==self.genreCollectionView)
     {
+
         return _genreMovies.count;
     }
     else{
@@ -384,16 +340,16 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                return _upcomingMovies.count;
+                return viewModel.getUpcomingdData.count;
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                return _recommendationMovies.count;
+                return viewModel.getRecommendationData.count;
             }
         }
         else{
             if([cell.type  isEqual: @"popular"]){
-                return _popularTv.count;
+                return viewModel.getPopularData.count;
             }
             else if([cell.type isEqual:@"topRated"])
             {
@@ -401,15 +357,15 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"trending"])
             {
-                return _trendingTv.count;
+                return viewModel.getTrendingTvData.count;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                return _upcomingMovies.count;
+                return viewModel.getUpcomingdData.count;
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                return _recommendationMovies.count;
+                return viewModel.getRecommendationData.count;
             }
         }
     }
@@ -417,10 +373,23 @@ ViewModel *viewModel;
 }
 
 #pragma mark - CollectionView Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if(collectionView==self.genreCollectionView)
+    {
+        CustomBtnCollectionViewCell *cell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.genreTitle.backgroundColor = [UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1];
+    }
+
+}
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     if(collectionView==self.genreCollectionView)
     {
+        CustomBtnCollectionViewCell *cell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.genreTitle.backgroundColor = UIColor.blueColor;
         [self loadFilteredData: (int)[(MovieGenre *)_genreMovies[indexPath.row] genreID]];
+        
+        
     }
     else{
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;
@@ -444,12 +413,12 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                [vc setUpcomingData:self.upcomingMovies[indexPath.row]];
+                [vc setUpcomingData:viewModel.upcomingMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                [vc setData:self.recommendationMovies[indexPath.row]];
+                [vc setData:viewModel.recommendationMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
         }
@@ -457,12 +426,12 @@ ViewModel *viewModel;
         {
             if([cell.type  isEqual: @"trending"])
             {
-                [vc setTrendingData:self.trendingTv[indexPath.row]];
+                [vc setTrendingData:viewModel.trendingTv[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type  isEqual: @"popular"])
             {
-                [vc setTvdData:self.popularTv[indexPath.row]];
+                [vc setTvdData:viewModel.popularTv[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type isEqual:@"topRated"])
@@ -472,12 +441,12 @@ ViewModel *viewModel;
             }
             else if([cell.type isEqual:@"upcoming"])
             {
-                [vc setUpcomingData:self.upcomingMovies[indexPath.row]];
+                [vc setUpcomingData:viewModel.upcomingMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
             else if([cell.type isEqual:@"recommendations"])
             {
-                [vc setData:self.recommendationMovies[indexPath.row]];
+                [vc setData:viewModel.recommendationMovies[indexPath.row]];
                 [self.navigationController pushViewController:vc animated:NO];
             }
         }

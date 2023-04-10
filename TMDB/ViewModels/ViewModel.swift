@@ -13,6 +13,10 @@ class ViewModel: NSObject {
     @objc var trendingMovies: [TrendingMovies] = []
     @objc var popularMovies: [Movie] = []
     @objc var topRatedmovies:[Movie] = []
+    @objc var upcomingMovies:[Movie] = []
+    @objc var trendingTv: [TrendingMovies] = []
+    @objc var popularTv: [PopularTv] = []
+    @objc var recommendationMovies: [Movie] = []
     
     @objc init(genre: Int = 0) {
         self.genre = genre
@@ -42,6 +46,30 @@ class ViewModel: NSObject {
         return filtered
     }
     
+    @objc func loadTrendingTvData(completionHandler: @escaping () -> ()) {
+        let nm = NetworkManager()
+        let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        nm.getTrendingDataFromURL(urlStr:"https://api.themoviedb.org/3/trending/tv/day?api_key=626c45c82d5332598efa800848ea3571" , reqType: "GET", headers: header) {trendingTvData, error in
+            if(error != nil){
+                print("trending Tv error is ",error);
+            }
+            self.trendingTv = trendingTvData!.results
+            DispatchQueue.main.async {
+                completionHandler()
+            }
+        }
+     }
+     
+     @objc func getTrendingTvData() -> [TrendingMovies] {
+         guard genre > 0 else { return trendingTv}
+         
+         var filtered: [TrendingMovies] = []
+         for movie in trendingTv {
+             if movie.filteredMovie(genreID: genre) { filtered.append(movie) }
+         }
+         return filtered
+     }
+    
       @objc func loadPopularData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
@@ -67,6 +95,32 @@ class ViewModel: NSObject {
         return filtered;
     }
     
+    @objc func loadPopularTvData(completionHandler: @escaping () -> ()) {
+      let nm = NetworkManager()
+      let header = NSDictionary(object: "", forKey: "" as NSCopying);
+      nm.getPopularTvDataFromURL(urlStr:"https://api.themoviedb.org/3/tv/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){popularTvData, error in
+          if(error != nil){
+              print("popular Tv error is ", error);
+          }
+          self.popularTv = popularTvData!.results
+          print(self.popularTv.count);
+          DispatchQueue.main.async {
+              completionHandler()
+          }
+      }
+  }
+  
+  @objc func getPopularTvData() -> [PopularTv] {
+      guard genre > 0 else {
+          return popularTv
+      }
+      var filtered: [PopularTv] = []
+      for movie in popularTv {
+          if movie.filteredTV(genreID: genre){filtered.append(movie)}
+      }
+      return filtered;
+  }
+    
     @objc func loadTopRatedData(completionHandler: @escaping () -> ()) {
       let nm = NetworkManager()
       let header = NSDictionary(object: "", forKey: "" as NSCopying);
@@ -91,6 +145,57 @@ class ViewModel: NSObject {
         }
         return filtered;
     }
+    
+    
+    @objc func loadUpcomingData(completionHandler: @escaping () -> ()) {
+      let nm = NetworkManager()
+      let header = NSDictionary(object: "", forKey: "" as NSCopying);
+      nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/upcoming?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1", reqType: "GET", headers: header){upcomingData, error in
+          if(error != nil){
+              print("Upcoming error is ", error);
+          }
+          self.upcomingMovies = upcomingData!.results
+          DispatchQueue.main.async {
+              completionHandler()
+          }
+      }
+  }
+    
+   @objc func getUpcomingdData() -> [Movie] {
+        guard genre > 0 else {
+            return upcomingMovies
+        }
+        var filtered: [Movie] = []
+        for movie in upcomingMovies {
+            if movie.filteredMovie(genreID: genre){filtered.append(movie)}
+        }
+        return filtered;
+    }
+    
+    @objc func loadRecommendationData(completionHandler: @escaping () -> ()) {
+      let nm = NetworkManager()
+      let header = NSDictionary(object: "", forKey: "" as NSCopying);
+      nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){RecommendationData, error in
+          if(error != nil){
+              print("Recommendation error is ", error);
+          }
+          self.recommendationMovies = RecommendationData!.results
+          DispatchQueue.main.async {
+              completionHandler()
+          }
+      }
+  }
+  
+  @objc func getRecommendationData() -> [Movie] {
+      guard genre > 0 else {
+          return recommendationMovies
+      }
+      var filtered: [Movie] = []
+      for movie in recommendationMovies {
+          if movie.filteredMovie(genreID: genre){filtered.append(movie)}
+      }
+      return filtered;
+  }
     
   
 

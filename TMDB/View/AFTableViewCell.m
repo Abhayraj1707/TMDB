@@ -48,7 +48,7 @@
     self.collectionView.delegate = dataSourceDelegate;
     self.collectionView.indexPath = indexPath;
     [self.collectionView setContentOffset:self.collectionView.contentOffset animated:NO];
-    [self.collectionView setBackgroundColor:[UIColor colorWithRed:39/255.0 green:31/255.0 blue:66/255.0 alpha:1]];
+    [self.collectionView setBackgroundColor:[UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1]];
     
     [self.collectionView reloadData];
 }

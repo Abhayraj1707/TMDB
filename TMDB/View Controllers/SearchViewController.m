@@ -14,17 +14,26 @@
 @end
 
 @implementation SearchViewController
+SearchViewModel* searchViewModel;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    searchViewModel = [[SearchViewModel alloc]init];
+    
+//    [searchViewModel loadSearchDataWithStr: completionHandler:<#^(void)completionHandler#>]
+//
+//    [searchViewModel loadSearchDataWithStr: completionHandler:^{
+//        [self.searchTableView reloadData];
+//    }]
+    
 }
 
 - (void)checkSearchApICall :(NSString*)str {
     NetworkManager *nm = [[NetworkManager alloc] init];
     NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-    
+
     NSString *url = [NSString stringWithFormat:@"https://api.themoviedb.org/3/search/movie?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1&include_adult=false&query=%@",str];
-    
+
     [nm getDataFromURLWithUrlStr:url reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
         if (error != nil) {
         }
@@ -37,7 +46,7 @@
     NSLog(@"searched data %@", self.filteredData);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.searchTableView reloadData];
-        
+
     });
 }
 
@@ -71,4 +80,7 @@
     return 20;
 }
 
+
+
 @end
+

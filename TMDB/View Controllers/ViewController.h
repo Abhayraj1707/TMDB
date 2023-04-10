@@ -11,17 +11,10 @@
 #import <QuartzCore/QuartzCore.h>
 #import <PTEHorizontalTableView/PTEHorizontalTableView.h>
 
-
 @interface ViewController : UIViewController <UICollectionViewDataSource,UICollectionViewDelegate, UITableViewDelegate, UITableViewDataSource,PTETableViewDelegate>
 
-@property (nonatomic) NSMutableArray *topRatedmovies;
-@property(nonatomic) NSMutableArray *trendingTv;
 @property (nonatomic) NSMutableArray *genreMovies;
-@property(nonatomic) NSMutableArray *popularTv;
 @property(nonatomic) NSMutableArray *topRatedTv;
-@property(nonatomic) NSMutableArray *upcomingMovies;
-@property(nonatomic) NSMutableArray *recommendationMovies;
-@property(nonatomic) NSMutableArray *recommendationTv;
 
 
 
