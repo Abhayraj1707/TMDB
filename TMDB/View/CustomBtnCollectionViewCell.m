@@ -16,16 +16,6 @@
 
 @implementation CustomBtnCollectionViewCell
 
-//- (void)labelTapped:(UITapGestureRecognizer *)recognizer {
-//    UILabel *tappedLabel = (UILabel *)recognizer.view;
-//
-//    if (tappedLabel != currentLabel) {
-//        currentLabel.backgroundColor = [UIColor colorWithRed:43.0/255 green:33.0/255 blue:72.0/255 alpha:1];
-//        tappedLabel.backgroundColor = [UIColor blueColor];
-//        currentLabel = tappedLabel;
-//    }
-//}
-
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -33,12 +23,6 @@
         self.genreTitle.layer.cornerRadius = 15;
         self.genreTitle.clipsToBounds = true;
         self.genreTitle.backgroundColor = [UIColor colorWithRed:43.0/255 green:33.0/255 blue:72.0/255 alpha:1];
-        self.genreTitle.userInteractionEnabled = YES;
-//        
-//        UITapGestureRecognizer *tapRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(labelTapped:)];
-//        [self.genreTitle addGestureRecognizer:tapRecognizer1];
-
-
         [self.contentView addSubview:self.genreTitle];
     }
     return self;

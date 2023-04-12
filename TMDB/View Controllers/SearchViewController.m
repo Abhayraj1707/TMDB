@@ -19,34 +19,12 @@ SearchViewModel* searchViewModel;
 - (void)viewDidLoad {
     [super viewDidLoad];
     searchViewModel = [[SearchViewModel alloc]init];
-    
-//    [searchViewModel loadSearchDataWithStr: completionHandler:<#^(void)completionHandler#>]
-//
-//    [searchViewModel loadSearchDataWithStr: completionHandler:^{
-//        [self.searchTableView reloadData];
-//    }]
-    
-}
-
-- (void)checkSearchApICall :(NSString*)str {
-    NetworkManager *nm = [[NetworkManager alloc] init];
-    NSDictionary *headers = [[NSDictionary alloc] initWithObjectsAndKeys:@"", @"", nil];
-
-    NSString *url = [NSString stringWithFormat:@"https://api.themoviedb.org/3/search/movie?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1&include_adult=false&query=%@",str];
-
-    [nm getDataFromURLWithUrlStr:url reqType:@"GET" headers:headers completionHandler:^(ResponseData * _Nullable data, NSError * _Nullable error) {
-        if (error != nil) {
-        }
-        self.filteredData = [data.results copy];
-        [self reloadData];
-    }];
 }
 
 -(void)reloadData {
-    NSLog(@"searched data %@", self.filteredData);
+    NSLog(@"searched data %@", searchViewModel.filteredData[0].title);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.searchTableView reloadData];
-
     });
 }
 
@@ -56,31 +34,30 @@ SearchViewModel* searchViewModel;
     if (searchCell == nil) {
         searchCell = (CustomSearchViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchCell"];
     }
-    [searchCell setData:self.filteredData[indexPath.row]];
+    [searchCell setData:searchViewModel.filteredData[indexPath.row]];
     return searchCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
-    [vc setData:self.filteredData[indexPath.row]];
+    [vc setData:searchViewModel.filteredData[indexPath.row]];
     [self.navigationController pushViewController:vc animated:NO];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section { 
-    return self.filteredData.count;
+    return searchViewModel.filteredData.count;
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText{
-   
     if(searchText.length >=3){
-        [self checkSearchApICall:searchText];
+        [searchViewModel loadSearchDataWithStr:searchText completionHandler:^{
+            [self reloadData];
+        }];
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 20;
 }
-
-
 
 @end
 

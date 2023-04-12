@@ -15,6 +15,7 @@
 //#import "genreTableViewCell.h"
 
 @interface ViewController ()
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
 
 @end
 
@@ -50,6 +51,8 @@ ViewModel *viewModel;
     [_genreCollectionView registerClass:[CustomBtnCollectionViewCell class] forCellWithReuseIdentifier:@"genreCell"];
     [_genreCollectionView setBackgroundColor:[UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1]];
     [self.view addSubview:_genreCollectionView];
+    self.genreCollectionView.allowsMultipleSelection = NO;
+    self.genreCollectionView.allowsSelection = YES;
     [_genreCollectionView reloadData];
     
     [self.tableView registerClass:[AFTableViewCell class]forCellReuseIdentifier:@"horizontalCell"];
@@ -378,7 +381,8 @@ ViewModel *viewModel;
     if(collectionView==self.genreCollectionView)
     {
         CustomBtnCollectionViewCell *cell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        cell.genreTitle.backgroundColor = [UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1];
+        cell.genreTitle.backgroundColor = UIColor.greenColor;
+//        [UIColor colorWithRed:22/255.0 green:14/255.0 blue:52/255.0 alpha:1];
     }
 
 }
@@ -386,7 +390,14 @@ ViewModel *viewModel;
     if(collectionView==self.genreCollectionView)
     {
         CustomBtnCollectionViewCell *cell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+        NSLog(@"%@", cell.genreTitle);
         cell.genreTitle.backgroundColor = UIColor.blueColor;
+//        if(self.selectedIndexPath){
+//            CustomBtnCollectionViewCell *previousCell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:self.selectedIndexPath];
+//            previousCell.genreTitle.backgroundColor = UIColor.yellowColor;
+//
+//        }
+//        self.selectedIndexPath = indexPath;
         [self loadFilteredData: (int)[(MovieGenre *)_genreMovies[indexPath.row] genreID]];
         
         

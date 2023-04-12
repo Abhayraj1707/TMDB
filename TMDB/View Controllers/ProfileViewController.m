@@ -12,8 +12,6 @@
 
 @end
 
-
-
 @implementation ProfileViewController
 -(void) editProfile:(id)paramSender{
     NSLog(@"edit btn is clicked");
@@ -28,9 +26,7 @@
     self.pfImg.image = [UIImage imageNamed:@"profileImg.png"];
     self.userName.text = @"Abhay Raj";
     self.userName.textColor = UIColor.whiteColor;
-    
     self.neatFlixName.image = [UIImage imageNamed:@"neatflix_name"];
-    
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {

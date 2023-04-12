@@ -16,7 +16,12 @@ class NetworkManager: NSObject {
     
     @objc func getDataFromURL(urlStr: NSString, reqType: NSString, headers: NSDictionary, completionHandler: @escaping (ResponseData?, NSError?) -> ()) {
         
-        guard let url = URL(string: urlStr as String) else { return }
+        guard let url = URL(string: urlStr as String) else {
+            let error = NSError(domain: "InvalidURL", code: 0, userInfo: [NSLocalizedDescriptionKey: "The URL string is not valid"])
+            completionHandler(nil, error)
+            return
+            
+        }
         var request = URLRequest(url:url)
         request.httpMethod = reqType as String
         let session = URLSession.shared;
