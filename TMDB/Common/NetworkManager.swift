@@ -62,8 +62,6 @@ class NetworkManager: NSObject {
         dataTask.resume()
     }
     
-    
-    
     @objc func getGenreDataFromURL(urlStr: NSString, reqType: NSString, headers: NSDictionary, completionHandler: @escaping (GenreData?, NSError?) -> ()) {
         
         var request = URLRequest(url: URL(string: urlStr as String)!)

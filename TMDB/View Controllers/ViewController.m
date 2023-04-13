@@ -390,17 +390,8 @@ ViewModel *viewModel;
     if(collectionView==self.genreCollectionView)
     {
         CustomBtnCollectionViewCell *cell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
-        NSLog(@"%@", cell.genreTitle);
         cell.genreTitle.backgroundColor = UIColor.blueColor;
-//        if(self.selectedIndexPath){
-//            CustomBtnCollectionViewCell *previousCell = (CustomBtnCollectionViewCell *)[collectionView cellForItemAtIndexPath:self.selectedIndexPath];
-//            previousCell.genreTitle.backgroundColor = UIColor.yellowColor;
-//
-//        }
-//        self.selectedIndexPath = indexPath;
         [self loadFilteredData: (int)[(MovieGenre *)_genreMovies[indexPath.row] genreID]];
-        
-        
     }
     else{
         AFTableViewCell *cell = (AFTableViewCell *)collectionView.superview.superview;

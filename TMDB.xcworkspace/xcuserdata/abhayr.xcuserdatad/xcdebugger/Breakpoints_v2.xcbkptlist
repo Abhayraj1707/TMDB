@@ -206,8 +206,8 @@
             filePath = "TMDB/View Controllers/ViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "408"
+            endingLineNumber = "408"
             landmarkName = "-collectionView:didSelectItemAtIndexPath:"
             landmarkType = "7">
             <Locations>
@@ -241,98 +241,35 @@
                   endingLineNumber = "417"
                   offsetFromSymbolStart = "904">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TMDB/Common/NetworkManager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "19"
-            endingLineNumber = "19"
-            landmarkName = "getDataFromURL(urlStr:reqType:headers:completionHandler:)"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2 - d06468a0fbc8842d"
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae4514035af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getDataFromURL(urlStr: __C.NSString, reqType: __C.NSString, headers: __C.NSDictionary, completionHandler: (Swift.Optional&lt;TMDB.ResponseData&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "356">
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "776">
                </Location>
                <Location
-                  uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2 - d06468a0fbc8842d"
+                  uuid = "0AA77025-39C5-4C20-89FC-F8F4F4F02095 - 72d86ae4514035af"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getDataFromURL(urlStr: __C.NSString, reqType: __C.NSString, headers: __C.NSDictionary, completionHandler: (Swift.Optional&lt;TMDB.ResponseData&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
                   moduleName = "TMDB"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "456">
-               </Location>
-               <Location
-                  uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2 - d06468a0fbc8842d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getDataFromURL(urlStr: __C.NSString, reqType: __C.NSString, headers: __C.NSDictionary, completionHandler: (Swift.Optional&lt;TMDB.ResponseData&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "TMDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "1024">
-               </Location>
-               <Location
-                  uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2 - d06468a0fbc8842d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getDataFromURL(urlStr: __C.NSString, reqType: __C.NSString, headers: __C.NSDictionary, completionHandler: (Swift.Optional&lt;TMDB.ResponseData&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "TMDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "364">
-               </Location>
-               <Location
-                  uuid = "A30CFEB9-F46E-4181-AC5C-1FA68D5871D2 - d06468a0fbc8842d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TMDB.NetworkManager.getDataFromURL(urlStr: __C.NSString, reqType: __C.NSString, headers: __C.NSDictionary, completionHandler: (Swift.Optional&lt;TMDB.ResponseData&gt;, Swift.Optional&lt;__C.NSError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "TMDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/Common/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "19"
-                  endingLineNumber = "19"
-                  offsetFromSymbolStart = "464">
+                  startingLineNumber = "408"
+                  endingLineNumber = "408"
+                  offsetFromSymbolStart = "852">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -412,6 +349,69 @@
                   startingLineNumber = "71"
                   endingLineNumber = "71"
                   offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "D297D90C-81A3-4C8A-8035-5BF72817C41F - 2d5cebd02d6432a5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__48-[SearchViewController searchBar:textDidChange:]_block_invoke"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/SearchViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2DD420A8-E9C0-458D-B6D1-ADEC90744B28"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TMDB/View Controllers/ViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "394"
+            endingLineNumber = "394"
+            landmarkName = "-collectionView:didSelectItemAtIndexPath:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2DD420A8-E9C0-458D-B6D1-ADEC90744B28 - 72d86ae451403451"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "168">
+               </Location>
+               <Location
+                  uuid = "2DD420A8-E9C0-458D-B6D1-ADEC90744B28 - 72d86ae451403451"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ViewController collectionView:didSelectItemAtIndexPath:]"
+                  moduleName = "TMDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/abhayr/Desktop/TMDB/TMDB/View%20Controllers/ViewController.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "394"
+                  endingLineNumber = "394"
+                  offsetFromSymbolStart = "244">
                </Location>
             </Locations>
          </BreakpointContent>
