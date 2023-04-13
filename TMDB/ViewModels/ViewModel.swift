@@ -25,9 +25,9 @@ class ViewModel: NSObject {
     @objc func loadTrendingData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getTrendingDataFromURL(urlStr:"https://api.themoviedb.org/3/trending/movie/day?api_key=626c45c82d5332598efa800848ea3571" , reqType: "GET", headers: header) {trendingData, error in
+        nm.getTrendingDataFromURL(urlStr:trendingApi as NSString , reqType: getReq as NSString, headers: header) {trendingData, error in
             if(error != nil){
-                print("trending error is ",error);
+                print(trendingText, errorText,error);
             }
             self.trendingMovies = trendingData!.results
             DispatchQueue.main.async {
@@ -49,9 +49,9 @@ class ViewModel: NSObject {
     @objc func loadTrendingTvData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getTrendingDataFromURL(urlStr:"https://api.themoviedb.org/3/trending/tv/day?api_key=626c45c82d5332598efa800848ea3571" , reqType: "GET", headers: header) {trendingTvData, error in
+        nm.getTrendingDataFromURL(urlStr:trendingTvApi as NSString , reqType: getReq as NSString, headers: header) {trendingTvData, error in
             if(error != nil){
-                print("trending Tv error is ",error);
+                print(trendingText,errorText,error);
             }
             self.trendingTv = trendingTvData!.results
             DispatchQueue.main.async {
@@ -73,9 +73,9 @@ class ViewModel: NSObject {
     @objc func loadPopularData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){popularData, error in
+        nm.getDataFromURL(urlStr:popularApi as NSString , reqType: getReq as NSString, headers: header){popularData, error in
             if(error != nil){
-                print("popular error is ", error);
+                print(popularText,errorText, error);
             }
             self.popularMovies = popularData!.results
             DispatchQueue.main.async {
@@ -98,9 +98,9 @@ class ViewModel: NSObject {
     @objc func loadPopularTvData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getPopularTvDataFromURL(urlStr:"https://api.themoviedb.org/3/tv/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){popularTvData, error in
+        nm.getPopularTvDataFromURL(urlStr:popularTvApi as NSString , reqType: getReq as NSString, headers: header){popularTvData, error in
             if(error != nil){
-                print("popular Tv error is ", error);
+                print(popularText,errorText,error);
             }
             self.popularTv = popularTvData!.results
             print(self.popularTv.count);
@@ -124,9 +124,9 @@ class ViewModel: NSObject {
     @objc func loadTopRatedData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/top_rated?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){topRatedData, error in
+        nm.getDataFromURL(urlStr:topRatedApi as NSString , reqType: getReq as NSString, headers: header){topRatedData, error in
             if(error != nil){
-                print("TopRated error is ", error);
+                print(topRatedText,errorText, error);
             }
             self.topRatedmovies = topRatedData!.results
             DispatchQueue.main.async {
@@ -150,9 +150,9 @@ class ViewModel: NSObject {
     @objc func loadUpcomingData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/upcoming?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1", reqType: "GET", headers: header){upcomingData, error in
+        nm.getDataFromURL(urlStr:upcomingApi as NSString, reqType: getReq as NSString, headers: header){upcomingData, error in
             if(error != nil){
-                print("Upcoming error is ", error);
+                print(upcomingText,errorText, error);
             }
             self.upcomingMovies = upcomingData!.results
             DispatchQueue.main.async {
@@ -175,9 +175,9 @@ class ViewModel: NSObject {
     @objc func loadRecommendationData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
-        nm.getDataFromURL(urlStr:"https://api.themoviedb.org/3/movie/popular?api_key=626c45c82d5332598efa800848ea3571&language=en-US&page=1" , reqType: "GET", headers: header){RecommendationData, error in
+        nm.getDataFromURL(urlStr:recommendationApi as NSString, reqType: getReq as NSString, headers: header){RecommendationData, error in
             if(error != nil){
-                print("Recommendation error is ", error);
+                print(recommendationsText,errorText, error);
             }
             self.recommendationMovies = RecommendationData!.results
             DispatchQueue.main.async {

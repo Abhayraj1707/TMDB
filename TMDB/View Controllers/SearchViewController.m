@@ -8,6 +8,7 @@
 #import "SearchViewController.h"
 #import "CustomSearchViewCell.h"
 #import "ViewController.h"
+#import "Constants.h"
 
 @interface SearchViewController ()
 
@@ -22,24 +23,23 @@ SearchViewModel* searchViewModel;
 }
 
 -(void)reloadData {
-    NSLog(@"searched data %@", searchViewModel.filteredData[0].title);
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.searchTableView reloadData];
     });
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    CustomSearchViewCell *searchCell = (CustomSearchViewCell *)[tableView dequeueReusableCellWithIdentifier:@"searchCell"];
+    CustomSearchViewCell *searchCell = (CustomSearchViewCell *)[tableView dequeueReusableCellWithIdentifier:searchCellIdentifier];
     
     if (searchCell == nil) {
-        searchCell = (CustomSearchViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"searchCell"];
+        searchCell = (CustomSearchViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:searchCellIdentifier];
     }
     [searchCell setData:searchViewModel.filteredData[indexPath.row]];
     return searchCell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"DetailMovieViewController"];
+    DetailMovieViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:detailCellIdentifier];
     [vc setData:searchViewModel.filteredData[indexPath.row]];
     [self.navigationController pushViewController:vc animated:NO];
 }

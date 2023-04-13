@@ -10,6 +10,7 @@
 		8463C54B7C379BF6053462C0 /* Pods_TMDB_TMDBUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 857742E953BF432840ADF99A /* Pods_TMDB_TMDBUITests.framework */; };
 		9F039AA729DEC5FB000B77B8 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F039AA629DEC5FB000B77B8 /* ViewModel.swift */; };
 		9F039AAA29E41E24000B77B8 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F039AA929E41E24000B77B8 /* SearchViewModel.swift */; };
+		9F039AB129E80397000B77B8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F039AB029E80397000B77B8 /* Constants.m */; };
 		9F44642929AF4A7C00A99734 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642829AF4A7C00A99734 /* AppDelegate.m */; };
 		9F44642C29AF4A7C00A99734 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642B29AF4A7C00A99734 /* SceneDelegate.m */; };
 		9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F44642E29AF4A7C00A99734 /* ViewController.m */; };
@@ -66,6 +67,8 @@
 		857742E953BF432840ADF99A /* Pods_TMDB_TMDBUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDB_TMDBUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F039AA629DEC5FB000B77B8 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		9F039AA929E41E24000B77B8 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		9F039AAF29E80397000B77B8 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		9F039AB029E80397000B77B8 /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		9F2DCEC24D66D2632CCEC5B8 /* Pods_TMDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TMDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44642429AF4A7C00A99734 /* TMDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TMDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F44642729AF4A7C00A99734 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				9F63F91529B20BEA007589B4 /* NetworkManager.swift */,
+				9F039AAF29E80397000B77B8 /* Constants.h */,
+				9F039AB029E80397000B77B8 /* Constants.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -554,6 +559,7 @@
 				9F63F91629B20BEA007589B4 /* NetworkManager.swift in Sources */,
 				9FF58A5B29D5AB7400724642 /* ProfileTableViewCell.m in Sources */,
 				9FF58A5829D44BCB00724642 /* UpcomingResponseData.swift in Sources */,
+				9F039AB129E80397000B77B8 /* Constants.m in Sources */,
 				9F039AA729DEC5FB000B77B8 /* ViewModel.swift in Sources */,
 				9F63F92F29BB3AA3007589B4 /* GenreData.swift in Sources */,
 				9F44642F29AF4A7C00A99734 /* ViewController.m in Sources */,

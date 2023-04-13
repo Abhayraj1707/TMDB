@@ -6,7 +6,7 @@
 //
 
 #import "ProfileViewController.h"
-
+#import "Constants.h"
 
 @interface ProfileViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -20,19 +20,19 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"Profile";
+    self.navigationItem.title = profileText;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(editProfile:)];
-    self.profileImage.image = [UIImage imageNamed:@"popcorn.jpeg"];
-    self.pfImg.image = [UIImage imageNamed:@"profileImg.png"];
-    self.userName.text = @"Abhay Raj";
+    self.profileImage.image = [UIImage imageNamed:popconImg];
+    self.pfImg.image = [UIImage imageNamed:profileImg];
+    self.userName.text = profileUserName;
     self.userName.textColor = UIColor.whiteColor;
-    self.neatFlixName.image = [UIImage imageNamed:@"neatflix_name"];
+    self.neatFlixName.image = [UIImage imageNamed:NeatFlixNameImg];
 }
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    ProfileTableViewCell *profileCell = (ProfileTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfileTableViewCell"];
+    ProfileTableViewCell *profileCell = (ProfileTableViewCell *)[tableView dequeueReusableCellWithIdentifier:profileTableViewIdentifier];
     if (profileCell == nil) {
-        profileCell = (ProfileTableViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileTableViewCell"];
+        profileCell = (ProfileTableViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:profileTableViewIdentifier];
     }
     return profileCell;
 }
