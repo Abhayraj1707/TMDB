@@ -54,6 +54,10 @@ SearchViewModel* searchViewModel;
             [self reloadData];
         }];
     }
+    else {
+            [searchViewModel resetSearchResults];
+            [self reloadData];
+        }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
     return 20;

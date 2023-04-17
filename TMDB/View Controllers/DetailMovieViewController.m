@@ -43,7 +43,7 @@
             self.lblMovieTitle.text = popularData.title;
             self.lblMovieDes.text = popularData.overview;
             NSString *ratingText = @(popularData.vote_average).stringValue;
-            self.ratingLbl.text =[ratingText stringByAppendingString:ratingText];
+            self.ratingLbl.text =[ratingTxt stringByAppendingString:ratingText];
         });
     });
 }
@@ -57,7 +57,7 @@
             self.lblMovieTitle.text = TopRatedData.title;
             self.lblMovieDes.text = TopRatedData.overview;
             NSString *ratingText = @(TopRatedData.vote_average).stringValue;
-            self.ratingLbl.text =[ratingText stringByAppendingString:ratingText];
+            self.ratingLbl.text =[ratingTxt stringByAppendingString:ratingText];
         });
     });
 }
@@ -71,7 +71,7 @@
             self.lblMovieTitle.text = UpcomingData.title;
             self.lblMovieDes.text = UpcomingData.overview;
             NSString *ratingText = @(UpcomingData.vote_average).stringValue;
-            self.ratingLbl.text =[ratingText stringByAppendingString:ratingText];
+            self.ratingLbl.text =[ratingTxt stringByAppendingString:ratingText];
         });
     });
 }
@@ -85,7 +85,7 @@
             self.lblMovieTitle.text = TvData.name;
             self.lblMovieDes.text = TvData.overview;
             NSString *ratingText = @(TvData.vote_average).stringValue;
-            self.ratingLbl.text =[ratingText stringByAppendingString:ratingText];
+            self.ratingLbl.text =[ratingTxt stringByAppendingString:ratingText];
         });
     });
 }
@@ -99,7 +99,7 @@
             self.lblMovieTitle.text = Data.title;
             self.lblMovieDes.text = Data.overview;
             NSString *ratingText = @(Data.vote_average).stringValue;
-            self.ratingLbl.text =[ratingText stringByAppendingString:ratingText];
+            self.ratingLbl.text =[ratingTxt stringByAppendingString:ratingText];
         });
     });
 }

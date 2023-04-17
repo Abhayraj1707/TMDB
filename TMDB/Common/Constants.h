@@ -47,7 +47,7 @@ extern NSString * const profileImg;
 extern NSString * const popconImg;
 extern NSString * const profileTableViewIdentifier;
 extern NSString * const errorText;
-extern NSString * const ratingText;
+extern NSString * const ratingTxt;
 
 
 

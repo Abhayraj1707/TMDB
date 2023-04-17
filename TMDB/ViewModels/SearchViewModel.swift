@@ -27,4 +27,8 @@ class SearchViewModel: NSObject{
         }
     }
     
+    @objc func resetSearchResults() {
+        filteredData = []
+    }
+    
 }

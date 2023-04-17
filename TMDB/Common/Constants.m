@@ -45,7 +45,7 @@ NSString * const profileImg = @"profileImg.png";
 NSString * const popconImg = @"popcorn.jpeg";
 NSString * const profileTableViewIdentifier = @"ProfileTableViewCell";
 NSString * const errorText = @"Error";
-NSString * const ratingtText = @"Rating: ";
+NSString * const ratingTxt = @"Rating: ";
 
 @end;
 

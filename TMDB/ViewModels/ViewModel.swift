@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SystemConfiguration
 
 @objc
 class ViewModel: NSObject {
@@ -22,9 +23,19 @@ class ViewModel: NSObject {
         self.genre = genre
     }
     
+ 
+    
     @objc func loadTrendingData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
         nm.getTrendingDataFromURL(urlStr:trendingApi as NSString , reqType: getReq as NSString, headers: header) {trendingData, error in
             if(error != nil){
                 print(trendingText, errorText,error);
@@ -49,6 +60,16 @@ class ViewModel: NSObject {
     @objc func loadTrendingTvData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
+        
         nm.getTrendingDataFromURL(urlStr:trendingTvApi as NSString , reqType: getReq as NSString, headers: header) {trendingTvData, error in
             if(error != nil){
                 print(trendingText,errorText,error);
@@ -73,6 +94,16 @@ class ViewModel: NSObject {
     @objc func loadPopularData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
+        
         nm.getDataFromURL(urlStr:popularApi as NSString , reqType: getReq as NSString, headers: header){popularData, error in
             if(error != nil){
                 print(popularText,errorText, error);
@@ -98,6 +129,14 @@ class ViewModel: NSObject {
     @objc func loadPopularTvData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
         nm.getPopularTvDataFromURL(urlStr:popularTvApi as NSString , reqType: getReq as NSString, headers: header){popularTvData, error in
             if(error != nil){
                 print(popularText,errorText,error);
@@ -124,6 +163,14 @@ class ViewModel: NSObject {
     @objc func loadTopRatedData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
         nm.getDataFromURL(urlStr:topRatedApi as NSString , reqType: getReq as NSString, headers: header){topRatedData, error in
             if(error != nil){
                 print(topRatedText,errorText, error);
@@ -150,6 +197,15 @@ class ViewModel: NSObject {
     @objc func loadUpcomingData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
+        
         nm.getDataFromURL(urlStr:upcomingApi as NSString, reqType: getReq as NSString, headers: header){upcomingData, error in
             if(error != nil){
                 print(upcomingText,errorText, error);
@@ -175,6 +231,15 @@ class ViewModel: NSObject {
     @objc func loadRecommendationData(completionHandler: @escaping () -> ()) {
         let nm = NetworkManager()
         let header = NSDictionary(object: "", forKey: "" as NSCopying);
+        
+        let reachability = SCNetworkReachabilityCreateWithName(nil, "google.com")
+        var flags = SCNetworkReachabilityFlags()
+        SCNetworkReachabilityGetFlags(reachability!, &flags)
+        
+        if !isNetworkReachable(with: flags) {
+            print("Internet connection not available")
+            return
+        }
         nm.getDataFromURL(urlStr:recommendationApi as NSString, reqType: getReq as NSString, headers: header){RecommendationData, error in
             if(error != nil){
                 print(recommendationsText,errorText, error);
@@ -195,6 +260,14 @@ class ViewModel: NSObject {
             if movie.filteredMovie(genreID: genre){filtered.append(movie)}
         }
         return filtered;
+    }
+    
+    func isNetworkReachable(with flags: SCNetworkReachabilityFlags) -> Bool {
+        let isReachable = flags.contains(.reachable)
+        let needsConnection = flags.contains(.connectionRequired)
+        let canConnectAutomatically = flags.contains(.connectionOnDemand) || flags.contains(.connectionOnTraffic)
+        let canConnectWithoutUserInteraction = canConnectAutomatically && !flags.contains(.interventionRequired)
+        return isReachable && (!needsConnection || canConnectWithoutUserInteraction)
     }
     
     
